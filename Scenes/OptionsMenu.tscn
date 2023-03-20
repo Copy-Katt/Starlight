@@ -1,0 +1,120 @@
+[gd_scene load_steps=18 format=3 uid="uid://buw7av0dt8bda"]
+
+[ext_resource type="Script" path="res://Scenes/OptionsMenu.gd" id="1_8bcw8"]
+[ext_resource type="Shader" path="res://Assets/Shaders/BG.gdshader" id="1_63v85"]
+[ext_resource type="Texture2D" uid="uid://dfk0ws1apgptm" path="res://Assets/Images/BG/Space.png" id="2_cmrpk"]
+[ext_resource type="Texture2D" uid="uid://ecn0n8wttl4l" path="res://Assets/Images/Menus/Options/Tablet.png" id="3_bul0s"]
+[ext_resource type="Theme" uid="uid://jlefapqly6nh" path="res://Assets/Data/default_theme.theme" id="4_mousm"]
+[ext_resource type="FontFile" uid="uid://bcjvcavk6kkgm" path="res://Assets/Fonts/PixelOperatorHB.ttf" id="6_rw2m2"]
+[ext_resource type="Texture2D" uid="uid://cgmmislc3tyxk" path="res://Assets/Images/Menus/Options/CategoryIcons.png" id="8_m5lby"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1e82f"]
+shader = ExtResource("1_63v85")
+shader_parameter/strengthX = 0.125
+shader_parameter/strengthY = 0.625
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twx3p"]
+atlas = ExtResource("8_m5lby")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wrn34"]
+content_margin_left = 16.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3wn7"]
+atlas = ExtResource("8_m5lby")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sq8fp"]
+atlas = ExtResource("8_m5lby")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n23w5"]
+atlas = ExtResource("8_m5lby")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8ykr"]
+atlas = ExtResource("8_m5lby")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbkvi"]
+atlas = ExtResource("8_m5lby")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xr6a3"]
+atlas = ExtResource("8_m5lby")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umrdm"]
+atlas = ExtResource("8_m5lby")
+region = Rect2(48, 0, 16, 16)
+
+[node name="OptionsMenu" type="Node2D"]
+script = ExtResource("1_8bcw8")
+
+[node name="Space" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_1e82f")
+position = Vector2(0, -1)
+texture = ExtResource("2_cmrpk")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 416, 240)
+
+[node name="Tablet" type="Sprite2D" parent="."]
+position = Vector2(208, 120)
+texture = ExtResource("3_bul0s")
+
+[node name="TitleIcon" type="Sprite2D" parent="."]
+position = Vector2(73, 46)
+texture = SubResource("AtlasTexture_twx3p")
+
+[node name="Title" type="Label" parent="."]
+offset_left = 89.0
+offset_top = 38.0
+offset_right = 161.0
+offset_bottom = 54.0
+theme = ExtResource("4_mousm")
+theme_override_colors/font_shadow_color = Color(0.25098, 0.286275, 0.45098, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("6_rw2m2")
+theme_override_font_sizes/font_size = 16
+text = "Video"
+
+[node name="Options" type="ScrollContainer" parent="."]
+offset_left = 44.0
+offset_top = 66.0
+offset_right = 372.0
+offset_bottom = 192.0
+theme = ExtResource("4_mousm")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_wrn34")
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Options"]
+custom_minimum_size = Vector2(288, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="Back" type="TextureButton" parent="."]
+offset_left = 56.0
+offset_top = 194.0
+offset_right = 72.0
+offset_bottom = 210.0
+texture_normal = SubResource("AtlasTexture_u3wn7")
+texture_pressed = SubResource("AtlasTexture_sq8fp")
+texture_hover = SubResource("AtlasTexture_n23w5")
+texture_disabled = SubResource("AtlasTexture_i8ykr")
+texture_focused = SubResource("AtlasTexture_fbkvi")
+
+[node name="CategoryIcons2" type="Sprite2D" parent="."]
+position = Vector2(112, 202)
+texture = SubResource("AtlasTexture_twx3p")
+
+[node name="CategoryIcons4" type="Sprite2D" parent="."]
+position = Vector2(144, 202)
+texture = SubResource("AtlasTexture_xr6a3")
+
+[node name="CategoryIcons5" type="Sprite2D" parent="."]
+position = Vector2(176, 202)
+texture = SubResource("AtlasTexture_umrdm")

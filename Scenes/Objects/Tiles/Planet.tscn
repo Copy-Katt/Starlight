@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://b34bt8jpcn84f"]
+
+[ext_resource type="PackedScene" uid="uid://tsq8m664h0q4" path="res://Scenes/Objects/Nodes/GravityArea2D.tscn" id="1_vleoo"]
+
+[sub_resource type="Shader" id="Shader_xelrc"]
+code = "shader_type canvas_item;
+
+void fragment() {
+	if (distance(UV, vec2(0.5)) > 0.5) {
+		discard;
+	}
+	if (distance(UV, vec2(0.5)) > 0.48) {
+		COLOR = vec4(1.0,0.0,0.0,1.0);
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_enkxd"]
+shader = SubResource("Shader_xelrc")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ol3gr"]
+radius = 65.0
+
+[node name="Planet" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_enkxd")
+offset_left = -65.0
+offset_top = -65.0
+offset_right = 65.0
+offset_bottom = 65.0
+color = Color(0.384314, 0.160784, 0.160784, 1)
+
+[node name="GravityArea2D" parent="." instance=ExtResource("1_vleoo")]
+radius = 110
+
+[node name="Collision" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision"]
+shape = SubResource("CircleShape2D_ol3gr")

@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfawnhx7pnt4g"]
+
+[ext_resource type="Script" path="res://Scenes/Objects/Menus/Options/Slider.gd" id="1_0augm"]
+[ext_resource type="Theme" uid="uid://jlefapqly6nh" path="res://Assets/Data/default_theme.theme" id="1_2n0yn"]
+[ext_resource type="FontFile" uid="uid://btmbcaberjtcd" path="res://Assets/Fonts/Sevastopol-Interface.ttf" id="2_7mghh"]
+
+[node name="Slider" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 192.0
+offset_bottom = 16.0
+script = ExtResource("1_0augm")
+metadata/_edit_vertical_guides_ = []
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 149.0
+offset_bottom = 16.0
+theme = ExtResource("1_2n0yn")
+theme_override_fonts/font = ExtResource("2_7mghh")
+theme_override_font_sizes/font_size = 16
+text = "            Slider"
+
+[node name="Value" type="Label" parent="."]
+layout_mode = 0
+offset_left = -48.0
+offset_top = 1.0
+offset_right = 14.0
+offset_bottom = 16.0
+theme = ExtResource("1_2n0yn")
+theme_override_fonts/font = ExtResource("2_7mghh")
+theme_override_font_sizes/font_size = 16
+text = "0"
+horizontal_alignment = 2
+
+[node name="HScrollBar" type="HScrollBar" parent="."]
+layout_mode = 2
+offset_left = 59.0
+offset_top = 4.0
+offset_right = 109.0
+offset_bottom = 12.0
+theme = ExtResource("1_2n0yn")
+step = 1.0

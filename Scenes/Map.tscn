@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://bwko1426sspbn"]
+
+[ext_resource type="PackedScene" uid="uid://xhuthcjtwc8b" path="res://Assets/Models/Rocket/model.gltf" id="1_bwr7q"]
+[ext_resource type="Texture2D" uid="uid://bwxal5dm3cw3s" path="res://Assets/Images/BG/3D/panorama.png" id="1_ijh65"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_jkknj"]
+panorama = ExtResource("1_ijh65")
+filter = false
+
+[sub_resource type="Sky" id="Sky_8r3fd"]
+sky_material = SubResource("PanoramaSkyMaterial_jkknj")
+
+[sub_resource type="Environment" id="Environment_vm83g"]
+background_mode = 2
+background_color = Color(0.0117647, 0, 0.0666667, 1)
+sky = SubResource("Sky_8r3fd")
+ambient_light_source = 3
+ambient_light_color = Color(0.792157, 0.792157, 0.792157, 1)
+ambient_light_sky_contribution = 0.2
+ssao_enabled = true
+ssao_ao_channel_affect = 1.0
+glow_enabled = true
+glow_normalized = true
+glow_strength = 0.65
+glow_blend_mode = 1
+fog_light_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_soxhu"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+rim_enabled = true
+rim_tint = 1.0
+backlight_enabled = true
+backlight = Color(1, 1, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_irrql"]
+material = SubResource("StandardMaterial3D_soxhu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aje52"]
+albedo_color = Color(0, 0.737255, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_02ctt"]
+material = SubResource("StandardMaterial3D_aje52")
+
+[node name="Map" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vm83g")
+
+[node name="Rocket" parent="." instance=ExtResource("1_bwr7q")]
+
+[node name="Camera3D" type="Camera3D" parent="Rocket"]
+transform = Transform3D(0.943223, 0, 0.332161, 0, 1, 0, -0.332161, 0, 0.943223, 1.562, 0.952, 1.757)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, -1000)
+mesh = SubResource("SphereMesh_irrql")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MeshInstance3D"]
+shadow_enabled = true
+omni_range = 4096.0
+omni_attenuation = 1e-05
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 0, -15.0156, 0)
+mesh = SubResource("SphereMesh_02ctt")

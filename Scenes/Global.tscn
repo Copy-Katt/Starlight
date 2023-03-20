@@ -1,0 +1,56 @@
+[gd_scene load_steps=11 format=3 uid="uid://26u7vpp7fbj2"]
+
+[ext_resource type="AudioStream" uid="uid://cb4lxotg1fe4" path="res://Assets/Music/EndlessVoid.wav" id="1_5iy7v"]
+[ext_resource type="Script" path="res://Scenes/Global.gd" id="1_p465t"]
+[ext_resource type="Script" path="res://Scripts/Nodes/SCSoundManager.gd" id="2_h5wju"]
+[ext_resource type="FontFile" uid="uid://lfyxkqn7db31" path="res://Assets/Fonts/small_5x3.ttf" id="3_50tm8"]
+[ext_resource type="Shader" path="res://Assets/Shaders/Transition.gdshader" id="3_en8so"]
+[ext_resource type="Shader" path="res://Assets/Shaders/Palette.gdshader" id="5_k7mea"]
+[ext_resource type="Texture2D" uid="uid://ihvkwfv4tid8" path="res://Assets/Images/Rosy-42.png" id="6_0uemp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qnigr"]
+shader = ExtResource("3_en8so")
+shader_parameter/value = 0.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_j182v"]
+font = ExtResource("3_50tm8")
+font_size = 8
+shadow_size = 0
+shadow_color = Color(0.0784314, 0.0941176, 0.180392, 1)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6oy8m"]
+shader = ExtResource("5_k7mea")
+shader_parameter/palette = ExtResource("6_0uemp")
+
+[node name="Global" type="CanvasLayer"]
+layer = 128
+script = ExtResource("1_p465t")
+
+[node name="SCSoundManager" type="Node" parent="."]
+script = ExtResource("2_h5wju")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_5iy7v")
+volume_db = -20.143
+
+[node name="Transition" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_qnigr")
+offset_right = 416.0
+offset_bottom = 240.0
+mouse_filter = 2
+color = Color(0.0784314, 0.0941176, 0.180392, 1)
+
+[node name="Info" type="Label" parent="."]
+offset_left = 2.0
+offset_top = 232.0
+offset_right = 30.0
+offset_bottom = 242.0
+text = "0/0 FPS"
+label_settings = SubResource("LabelSettings_j182v")
+
+[node name="PaletteLimit" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_6oy8m")
+offset_right = 416.0
+offset_bottom = 240.0

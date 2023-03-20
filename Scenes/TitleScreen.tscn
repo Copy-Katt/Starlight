@@ -1,0 +1,160 @@
+[gd_scene load_steps=22 format=3 uid="uid://bq48vk5rsry7h"]
+
+[ext_resource type="Script" path="res://Scenes/TitleScreen.gd" id="1_74msv"]
+[ext_resource type="Shader" path="res://Assets/Shaders/BG.gdshader" id="2_iyl1g"]
+[ext_resource type="Texture2D" uid="uid://dfk0ws1apgptm" path="res://Assets/Images/BG/Space.png" id="2_jo2xk"]
+[ext_resource type="Texture2D" uid="uid://c6ee7qyn3uygu" path="res://Assets/Images/Menus/TitleScreen/Logo.png" id="4_2nyj7"]
+[ext_resource type="Texture2D" uid="uid://ctqqt6jy8nvt1" path="res://Assets/Images/Menus/TitleScreen/Options.png" id="5_2kneq"]
+[ext_resource type="FontFile" uid="uid://4l6hnm68kiij" path="res://Assets/Fonts/pressstart2p-regular.ttf" id="6_jmg52"]
+[ext_resource type="PackedScene" uid="uid://d4cppndh75vfd" path="res://Scenes/Objects/Enemies/Spikr.tscn" id="7_3xqxs"]
+[ext_resource type="Theme" uid="uid://jlefapqly6nh" path="res://Assets/Data/default_theme.theme" id="7_lcjgv"]
+[ext_resource type="PackedScene" uid="uid://v671373uqaaq" path="res://Scenes/Objects/Collectables/Gem.tscn" id="8_rnkfy"]
+[ext_resource type="PackedScene" uid="uid://cdnl3daarynop" path="res://Scenes/Objects/Collectables/Moon.tscn" id="9_aakng"]
+[ext_resource type="PackedScene" uid="uid://dviufjcr0g8hk" path="res://Scenes/Objects/Collectables/Bubble.tscn" id="10_qbb1q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v14xa"]
+shader = ExtResource("2_iyl1g")
+shader_parameter/strengthX = 0.125
+shader_parameter/strengthY = 0.625
+
+[sub_resource type="LabelSettings" id="LabelSettings_w65jk"]
+font = ExtResource("6_jmg52")
+font_size = 8
+outline_size = 4
+outline_color = Color(0.0784314, 0.0941176, 0.180392, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a1oxk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5wc6v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_42wvy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kv8g0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ynjo5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wf5t5"]
+atlas = ExtResource("5_2kneq")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dy3h"]
+atlas = ExtResource("5_2kneq")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eflst"]
+atlas = ExtResource("5_2kneq")
+region = Rect2(32, 0, 16, 16)
+
+[node name="TitleScreen" type="Node2D"]
+script = ExtResource("1_74msv")
+
+[node name="Space" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_v14xa")
+texture = ExtResource("2_jo2xk")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 416, 240)
+
+[node name="CornerSprites" type="Node2D" parent="."]
+position = Vector2(321, 294)
+
+[node name="Spikr" parent="CornerSprites" instance=ExtResource("7_3xqxs")]
+
+[node name="Gem" parent="CornerSprites" instance=ExtResource("8_rnkfy")]
+
+[node name="Spikr2" parent="CornerSprites" instance=ExtResource("7_3xqxs")]
+
+[node name="Gem2" parent="CornerSprites" instance=ExtResource("8_rnkfy")]
+
+[node name="Bubble" parent="CornerSprites" instance=ExtResource("10_qbb1q")]
+
+[node name="Gem3" parent="CornerSprites" instance=ExtResource("8_rnkfy")]
+
+[node name="Bubble3" parent="CornerSprites" instance=ExtResource("10_qbb1q")]
+
+[node name="Moon" parent="CornerSprites" instance=ExtResource("9_aakng")]
+
+[node name="Gem4" parent="CornerSprites" instance=ExtResource("8_rnkfy")]
+
+[node name="Spikr3" parent="CornerSprites" instance=ExtResource("7_3xqxs")]
+
+[node name="Gem5" parent="CornerSprites" instance=ExtResource("8_rnkfy")]
+
+[node name="Bubble2" parent="CornerSprites" instance=ExtResource("10_qbb1q")]
+
+[node name="Gem6" parent="CornerSprites" instance=ExtResource("8_rnkfy")]
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(64, 30)
+texture = ExtResource("4_2nyj7")
+centered = false
+
+[node name="Copyright" type="Label" parent="."]
+offset_left = 168.0
+offset_top = 128.0
+offset_right = 336.0
+offset_bottom = 139.0
+text = "©️ RafGamign 2022-2023"
+label_settings = SubResource("LabelSettings_w65jk")
+
+[node name="ChooseOptions" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Play" type="Button" parent="ChooseOptions"]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 168.0
+offset_right = 139.0
+offset_bottom = 184.0
+theme = ExtResource("7_lcjgv")
+theme_override_colors/font_color = Color(0.960784, 1, 0.909804, 1)
+theme_override_colors/font_outline_color = Color(0.0784314, 0.0941176, 0.180392, 1)
+theme_override_constants/outline_size = 4
+theme_override_styles/normal = SubResource("StyleBoxEmpty_a1oxk")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5wc6v")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_42wvy")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_kv8g0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ynjo5")
+text = "Start"
+icon = SubResource("AtlasTexture_wf5t5")
+flat = true
+
+[node name="Options" type="Button" parent="ChooseOptions"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 194.0
+offset_right = 99.0
+offset_bottom = 210.0
+theme = ExtResource("7_lcjgv")
+theme_override_colors/font_color = Color(0.960784, 1, 0.909804, 1)
+theme_override_colors/font_outline_color = Color(0.0784314, 0.0941176, 0.180392, 1)
+theme_override_constants/outline_size = 4
+theme_override_styles/normal = SubResource("StyleBoxEmpty_a1oxk")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5wc6v")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_42wvy")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_kv8g0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ynjo5")
+text = "Options"
+icon = SubResource("AtlasTexture_5dy3h")
+flat = true
+
+[node name="Close" type="Button" parent="ChooseOptions"]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 194.0
+offset_right = 183.0
+offset_bottom = 210.0
+theme = ExtResource("7_lcjgv")
+theme_override_colors/font_color = Color(0.960784, 1, 0.909804, 1)
+theme_override_colors/font_outline_color = Color(0.0784314, 0.0941176, 0.180392, 1)
+theme_override_constants/outline_size = 4
+theme_override_styles/normal = SubResource("StyleBoxEmpty_a1oxk")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5wc6v")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_42wvy")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_kv8g0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ynjo5")
+text = "Close"
+icon = SubResource("AtlasTexture_eflst")
+flat = true
+icon_alignment = 2

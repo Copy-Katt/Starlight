@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5cf60681yeny"]
+
+[ext_resource type="Script" path="res://Scenes/Closing.gd" id="1_eyebs"]
+[ext_resource type="Shader" path="res://Assets/Shaders/Closing.gdshader" id="2_3idan"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x1def"]
+shader = ExtResource("2_3idan")
+shader_parameter/value = 0.0
+
+[node name="Closing" type="Node2D"]
+rotation = -3.07617
+script = ExtResource("1_eyebs")
+
+[node name="Anim" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_x1def")
+offset_right = 416.0
+offset_bottom = 240.0
+color = Color(0.0784314, 0.0941176, 0.180392, 1)
