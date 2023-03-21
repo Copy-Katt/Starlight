@@ -18,3 +18,5 @@ func launch():
 	Global.Sound.play_sound('RocketCharge', SoundIgnoreType.IGNORE)
 	await get_tree().create_timer(0.7).timeout
 	Global.Sound.play_sound('RocketLaunch', SoundIgnoreType.IGNORE)
+
+func shake(a,b): Global.screen_shake(a,b)

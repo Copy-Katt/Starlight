@@ -3,6 +3,8 @@ extends CanvasLayer
 @onready var Sound := $SCSoundManager
 var Game : Node
 
+var can_swap_scene = true
+
 var gem_amount := 0
 var lifes := 3
 var score := 0
@@ -13,13 +15,17 @@ var cur_music = null
 # Level Information
 var level_data : Node2D
 
-func _ready():	
+var music_vol = 100
+var sfx_vol = 100
+var screenshake_factor = 1
+
+func _ready():
 	randomize()
 	play_music('EndlessVoid')
 	
 func _process(_delta):
 	if Engine.max_fps != 0:
-		$Info.text = str(min(Engine.get_frames_per_second(), Engine.max_fps)) + ' / ' + str(Engine.max_fps) + ' FPS'
+		$Info.text = str(min(Engine.get_frames_per_second(), Engine.max_fps)) + '/' + str(Engine.max_fps) + ' FPS'
 	else:
 		$Info.text = str(Engine.get_frames_per_second()) + ' FPS'
 	
@@ -46,27 +52,42 @@ func play_music(file_name: String):
 		$Music.play()
 	
 func switch_scene(file_path : String):
-	var transition_time = 0.64
-	var tween = get_tree().create_tween()
-	tween.tween_property($Transition.get_material(), "shader_parameter/value", 2.5, transition_time)
-	await get_tree().create_timer(transition_time/2+0.05).timeout
-	get_tree().change_scene_to_file(file_path)
-	await get_tree().create_timer(transition_time/2+0.05).timeout
-	$Transition.get_material().set_shader_parameter('value', 0.0)
+	if can_swap_scene:
+		can_swap_scene = false
+		var transition_time = 0.64
+		var tween = get_tree().create_tween()
+		tween.tween_property($ScreenEffects.get_material(), "shader_parameter/transition_value", 2.5, transition_time)
+		await get_tree().create_timer(transition_time/2+0.05).timeout
+		get_tree().change_scene_to_file(file_path)
+		await get_tree().create_timer(transition_time/2+0.05).timeout
+		$ScreenEffects.get_material().set_shader_parameter('transition_value', 0.0)
+		for i in 5:
+			await get_tree().process_frame
+		can_swap_scene = true
 	
 func reset_scene():
-	var transition_time = 0.64
-	var tween = get_tree().create_tween()
-	tween.tween_property($Transition.get_material(), "shader_parameter/value", 2.5, transition_time)
-	await get_tree().create_timer(transition_time/2+0.05).timeout
-	get_tree().reload_current_scene()
-	await get_tree().create_timer(transition_time/2+0.05).timeout
-	$Transition.get_material().set_shader_parameter('value', 0.0)
+	if can_swap_scene:
+		can_swap_scene = false
+		var transition_time = 0.64
+		var tween = get_tree().create_tween()
+		tween.tween_property($ScreenEffects.get_material(), "shader_parameter/transition_value", 2.5, transition_time)
+		await get_tree().create_timer(transition_time/2+0.05).timeout
+		get_tree().reload_current_scene()
+		await get_tree().create_timer(transition_time/2+0.05).timeout
+		$ScreenEffects.get_material().set_shader_parameter('transition_value', 0.0)
+		for i in 5:
+			await get_tree().process_frame
+		can_swap_scene = true
 	
 func load_level(level_name):
 	level_data = load("res://Assets/Data/Levels/"+level_name+".tscn").instantiate()
 	Game.load_level(level_name)
-#	ResourceSaver.save(level_data, 'user://test.tres')
+
+func screen_shake(duration, intensity):
+	$ScreenEffects.material.set_shader_parameter('shake_intensity', intensity*screenshake_factor)
+	$ScreenEffects.material.set_shader_parameter('shake_active', true)
+	await get_tree().create_timer(duration).timeout
+	$ScreenEffects.material.set_shader_parameter('shake_active', false)
 	
 #func send_to_discord(webhook, info):
 #	var http_request = HTTPRequest.new()

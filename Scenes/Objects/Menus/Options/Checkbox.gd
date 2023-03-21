@@ -1,6 +1,8 @@
 @tool
 extends Control
 
+@export var category := 'none'
+
 @export var option_name := 'CheckBox'
 @export var option_id := 'checkbox'
 @export var option_value := false:
@@ -14,4 +16,11 @@ func _ready():
 func _process(_delta):
 	$CheckBox.text = option_name
 
+func _on_check_box_pressed():
+	Global.Sound.play_sound('MenuGrab', SoundIgnoreType.PASS_THROUGH)
 	option_value = $CheckBox.button_pressed
+	Options.save_option(category, option_id, $CheckBox.button_pressed)
+	if Options.def_options[category].settings[option_id].has('updates') and Options.def_options[category].settings[option_id].updates:
+			Options.reload_option(category, option_id)
+	else:
+		Options.reload_option(category, option_id)

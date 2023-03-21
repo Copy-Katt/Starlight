@@ -29,30 +29,25 @@ func _ready():
 	$Barriers/Right.position.x = Camera.limit_right
 	
 	Camera.position_smoothing_enabled = false
-	for i in 3:
-		await get_tree().process_frame
+	for i in 3: await get_tree().process_frame
 	Camera.position_smoothing_enabled = true
-	
-	# Set Spawn If Null
-#	if Global.start_pos == null:
-#		Global.start_pos = 
 
 func _process(_delta):
 	# O2 Logic
 	if oxygen_amount > 24: oxygen_amount = 24
 	elif oxygen_amount < 0: Player.death()
-	if Player.running:
-		oxygen_mult = 3
-	else:
-		oxygen_mult = 1
 		
-	if Player.loses_o2: oxygen_amount -= _delta/2*oxygen_mult
+	if Player.loses_o2: 
+		oxygen_amount -= _delta/2*oxygen_mult
+		$UI/O2Bar.value = oxygen_amount
 	
 	# UI Texts
+#	if str(Global.gem_amount) != $UI/GemCount.text:
 	$UI/GemCount.text = str(Global.gem_amount)
+#	if Global.fill_num(Global.score, 8) != $UI/Score.text:
 	$UI/Score.text = Global.fill_num(Global.score, 8)
+#	if Global.lifes != $UI/LifesBar.value:
 	$UI/LifesBar.value = Global.lifes
-	$UI/O2Bar.value = oxygen_amount
 	
 	# Camera Positioning
 	Camera.position = Player.position+(Player.velocity/10)

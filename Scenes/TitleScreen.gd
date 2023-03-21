@@ -29,23 +29,27 @@ func _process(_delta):
 	
 	if Input.is_action_just_pressed("ui_right") or Input.is_action_just_pressed("ui_up"):
 		mouse_controlled = false
-		cur_selected -= 1
+		cur_selected = abs(wrap(cur_selected-1, 0, $ChooseOptions.get_child_count()))
 		update_selection()
 	if Input.is_action_just_pressed("ui_left") or Input.is_action_just_pressed("ui_down"):
 		mouse_controlled = false
-		cur_selected += 1
+		cur_selected = abs(wrap(cur_selected+1, 0, $ChooseOptions.get_child_count()))
 		update_selection()
 	if Input.is_action_just_pressed("ui_accept"):
-		Global.Sound.play_sound('MenuAccept', SoundIgnoreType.PASS_THROUGH)
-		functions[cur_selected%$ChooseOptions.get_child_count()].call()
+		if cur_selected >= 0:
+			if Global.can_swap_scene:
+				Global.Sound.play_sound('MenuAccept', SoundIgnoreType.PASS_THROUGH)
+			functions[cur_selected].call()
 	
+	if mouse_controlled:
+		cur_selected = -1
 	for i in $ChooseOptions.get_children():
 		if mouse_controlled and i.is_hovered():
 			cur_selected = i.get_index()
 			update_selection()
 	
-	if last_cur_selected != cur_selected:
-		Global.Sound.play_sound('MenuSwap', SoundIgnoreType.REPLACE)
+	if last_cur_selected != cur_selected and cur_selected >= 0:
+		Global.Sound.play_sound('MenuSwap', SoundIgnoreType.PASS_THROUGH)
 	
 	
 	for i in $CornerSprites.get_children():
@@ -53,9 +57,13 @@ func _process(_delta):
 	$CornerSprites.rotation += _delta*0.1
 
 func update_selection():
-	var selected_node = $ChooseOptions.get_child(cur_selected%$ChooseOptions.get_child_count())
+	var selected_node = $ChooseOptions.get_child(cur_selected)
 	for i in $ChooseOptions.get_children():
 		if i == selected_node:
 			i.add_theme_color_override('font_color', Color('f5ffe8'))
+			i.add_theme_color_override('font_pressed_color', Color('f5ffe8'))
+			i.add_theme_color_override('font_hover_color', Color('f5ffe8'))
 		else:
 			i.add_theme_color_override('font_color', Color('686f99'))
+			i.add_theme_color_override('font_pressed_color', Color('686f99'))
+			i.add_theme_color_override('font_hover_color', Color('686f99'))

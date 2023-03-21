@@ -36,14 +36,19 @@ var last_jump_pos = Vector2.ZERO
 var jump_sound = null
 var direction_string = 'r'
 var loses_o2 = true
-var running = false
+var running = false:
+	set(value):
+		if value:
+			Global.Game.oxygen_mult = 3
+		else:
+			Global.Game.oxygen_mult = 1
 
 func _physics_process(_delta):
 	if can_move:
 		__left_floor = _left_floor
 		_left_floor = is_on_floor()
 		
-		if _left_floor != __left_floor and _left_floor == false and down_gravity_velocity.y >= 0:
+		if _left_floor != __left_floor and _left_floor == false:
 			CoyoteTime.stop()
 			CoyoteTime.start()
 		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dqrclftt6ifdh"]
+[gd_scene load_steps=27 format=3 uid="uid://dqrclftt6ifdh"]
 
 [ext_resource type="Script" path="res://Scenes/Game.gd" id="1_j2yyy"]
 [ext_resource type="Texture2D" uid="uid://dfk0ws1apgptm" path="res://Assets/Images/BG/Space.png" id="1_v1fbu"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://deek3cuchnarj" path="res://Assets/Images/UI/GemDisplayUnderlay.png" id="9_oxoh3"]
 [ext_resource type="Texture2D" uid="uid://bf62whfy1x5lv" path="res://Assets/Images/LevelItems/Objects.png" id="10_emdso"]
 [ext_resource type="Texture2D" uid="uid://bx37wi66pb6jr" path="res://Assets/Images/UI/LifeCount.png" id="11_wmydn"]
+[ext_resource type="FontFile" uid="uid://bcjvcavk6kkgm" path="res://Assets/Fonts/PixelOperatorHB.ttf" id="13_nyblk"]
 [ext_resource type="Texture2D" uid="uid://duu6o2e6twup8" path="res://Assets/Images/UI/02Bar.png" id="14_2mnt8"]
 [ext_resource type="FontFile" uid="uid://4l6hnm68kiij" path="res://Assets/Fonts/pressstart2p-regular.ttf" id="20_g4nx7"]
 [ext_resource type="Shader" path="res://Assets/Shaders/Shine.gdshader" id="20_j5cjc"]
@@ -62,13 +63,18 @@ region = Rect2(0, 0, 65, 18)
 font = ExtResource("20_g4nx7")
 font_size = 8
 
+[sub_resource type="LabelSettings" id="LabelSettings_tp2pt"]
+font = ExtResource("13_nyblk")
+font_size = 32
+font_color = Color(0.960784, 1, 0.909804, 1)
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_j2yyy")
 metadata/_edit_horizontal_guides_ = []
 metadata/_edit_vertical_guides_ = []
 
 [node name="BG" type="CanvasLayer" parent="."]
-layer = -69
+layer = -100
 
 [node name="Space" type="Sprite2D" parent="BG"]
 material = SubResource("ShaderMaterial_jdk5a")
@@ -147,9 +153,23 @@ text = "00000000"
 label_settings = SubResource("LabelSettings_sm50n")
 horizontal_alignment = 2
 
+[node name="ColorRect" type="ColorRect" parent="UI"]
+visible = false
+offset_right = 416.0
+offset_bottom = 240.0
+color = Color(0.0784314, 0.0941176, 0.180392, 1)
+
+[node name="Label" type="Label" parent="UI/ColorRect"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 101.0
+offset_right = 266.0
+offset_bottom = 136.0
+text = "Game Over"
+label_settings = SubResource("LabelSettings_tp2pt")
+
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(75, 184)
-enabled = false
 limit_left = 0
 limit_bottom = 240
 position_smoothing_enabled = true

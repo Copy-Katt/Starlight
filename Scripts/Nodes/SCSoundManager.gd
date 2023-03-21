@@ -22,10 +22,14 @@ var sound_data = {
 	'Moon': preload("res://Assets/SFX/Moon.wav"),
 	'MenuSwap': preload("res://Assets/SFX/MenuSwap.wav"),
 	'MenuAccept': preload("res://Assets/SFX/MenuAccept.wav"),
+	'MenuGrab': preload("res://Assets/SFX/MenuGrab.wav"),
 	'RocketCharge': preload("res://Assets/SFX/RocketCharge.wav"),
 	'RocketLaunch': preload("res://Assets/SFX/RocketLaunch.wav"),
 	'Checkpoint': preload("res://Assets/SFX/Checkpoint.wav")
 }
+
+var vol = 0
+
 func play_sound(sound_name : String, ignore_type : int) -> SCSound:
 	var sound : SCSound
 	match ignore_type:
@@ -66,4 +70,5 @@ func get_sound(sound_name : String):
 	if stream is Array:
 		stream = stream[randi_range(0,stream.size()-1)]
 	var sound = SCSound.new(sound_name, stream)
+	sound.volume_db = vol
 	return sound

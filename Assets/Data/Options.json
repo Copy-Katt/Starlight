@@ -5,37 +5,43 @@
 			"max_fps": {
 				"name": "Max Framerate",
 				"type": "num",
-				"value": 60,
+				"def_value": 60,
 				"min": 10,
 				"max": 250,
 				"step": 10,
 				"swaps": {
-					"250": "None"
+					"250": "Inf"
 				}
-			},
-			"vsync": {
-				"name": "V-Sync",
-				"type": "bool",
-				"value": false
 			},
 			"window_scale": {
 				"name": "Window Scale",
 				"type": "num",
-				"value": 2,
+				"def_value": 2,
 				"min": 1,
 				"max": 4,
 				"step": 1,
-				"suffix": "x"
+				"suffix": "x",
+				"updates": false
+			},
+			"vsync": {
+				"name": "V-Sync",
+				"type": "bool",
+				"def_value": false
 			},
 			"borderless": {
 				"name": "Borderless Window",
 				"type": "bool",
-				"value": false
+				"def_value": false
 			},
 			"fullscreen": {
 				"name": "Fullscreen",
 				"type": "bool",
-				"value": false
+				"def_value": false
+			},
+			"show_fps": {
+				"name": "Show FPS",
+				"type": "bool",
+				"def_value": true
 			}
 		}
 	},
@@ -45,7 +51,7 @@
 			"music_vol": {
 				"name": "Music Volume",
 				"type": "num",
-				"value": 100,
+				"def_value": 70,
 				"min": 0,
 				"max": 100,
 				"step": 1,
@@ -57,7 +63,7 @@
 			"sfx_vol": {
 				"name": "SFX Volume",
 				"type": "num",
-				"value": 100,
+				"def_value": 90,
 				"min": 0,
 				"max": 100,
 				"step": 1,
@@ -68,13 +74,17 @@
 			}
 		}
 	},
+	"input": {
+		"name": "(WIP) Input",
+		"settings": {}
+	},
 	"accessibility": {
 		"name": "Accessibility Settings",
 		"settings": {
 			"screenshake_factor": {
 				"name": "Screenshake Factor",
 				"type": "num",
-				"value": 100,
+				"def_value": 100,
 				"min": 0,
 				"max": 100,
 				"step": 1,

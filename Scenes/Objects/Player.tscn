@@ -461,7 +461,7 @@ shape = SubResource("CapsuleShape2D_i3af0")
 debug_color = Color(0.0117647, 0, 0.988235, 0.419608)
 
 [node name="CoyoteTime" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.05
 one_shot = true
 
 [node name="Label" type="Label" parent="."]

@@ -15,3 +15,5 @@ script = ExtResource("2_y6sqm")
 layout_mode = 2
 theme = ExtResource("1_2ivs7")
 text = "CheckBox"
+
+[connection signal="pressed" from="CheckBox" to="." method="_on_check_box_pressed"]
