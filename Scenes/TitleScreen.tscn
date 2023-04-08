@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bq48vk5rsry7h"]
+[gd_scene load_steps=22 format=3 uid="uid://byuf0ynh18ia7"]
 
 [ext_resource type="Script" path="res://Scenes/TitleScreen.gd" id="1_74msv"]
 [ext_resource type="Shader" path="res://Assets/Shaders/BG.gdshader" id="2_iyl1g"]
@@ -7,9 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://ctqqt6jy8nvt1" path="res://Assets/Images/Menus/TitleScreen/Options.png" id="5_2kneq"]
 [ext_resource type="FontFile" uid="uid://4l6hnm68kiij" path="res://Assets/Fonts/pressstart2p-regular.ttf" id="6_jmg52"]
 [ext_resource type="PackedScene" uid="uid://d4cppndh75vfd" path="res://Scenes/Objects/Enemies/Spikr.tscn" id="7_3xqxs"]
-[ext_resource type="Theme" uid="uid://jlefapqly6nh" path="res://Assets/Data/default_theme.theme" id="7_lcjgv"]
 [ext_resource type="PackedScene" uid="uid://v671373uqaaq" path="res://Scenes/Objects/Collectables/Gem.tscn" id="8_rnkfy"]
 [ext_resource type="PackedScene" uid="uid://cdnl3daarynop" path="res://Scenes/Objects/Collectables/Moon.tscn" id="9_aakng"]
+[ext_resource type="Theme" uid="uid://jlefapqly6nh" path="res://Assets/Data/tablet_theme.theme" id="10_b33vs"]
 [ext_resource type="PackedScene" uid="uid://dviufjcr0g8hk" path="res://Scenes/Objects/Collectables/Bubble.tscn" id="10_qbb1q"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v14xa"]
@@ -107,7 +107,7 @@ offset_left = 61.0
 offset_top = 168.0
 offset_right = 139.0
 offset_bottom = 184.0
-theme = ExtResource("7_lcjgv")
+theme = ExtResource("10_b33vs")
 theme_override_colors/font_color = Color(0.960784, 1, 0.909804, 1)
 theme_override_colors/font_pressed_color = Color(0.960784, 1, 0.909804, 1)
 theme_override_colors/font_hover_color = Color(0.960784, 1, 0.909804, 1)
@@ -128,7 +128,7 @@ offset_left = 21.0
 offset_top = 194.0
 offset_right = 99.0
 offset_bottom = 210.0
-theme = ExtResource("7_lcjgv")
+theme = ExtResource("10_b33vs")
 theme_override_colors/font_color = Color(0.960784, 1, 0.909804, 1)
 theme_override_colors/font_pressed_color = Color(0.960784, 1, 0.909804, 1)
 theme_override_colors/font_hover_color = Color(0.960784, 1, 0.909804, 1)
@@ -149,7 +149,7 @@ offset_left = 105.0
 offset_top = 194.0
 offset_right = 183.0
 offset_bottom = 210.0
-theme = ExtResource("7_lcjgv")
+theme = ExtResource("10_b33vs")
 theme_override_colors/font_color = Color(0.960784, 1, 0.909804, 1)
 theme_override_colors/font_pressed_color = Color(0.960784, 1, 0.909804, 1)
 theme_override_colors/font_hover_color = Color(0.960784, 1, 0.909804, 1)

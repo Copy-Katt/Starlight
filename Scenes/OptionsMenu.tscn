@@ -1,21 +1,28 @@
-[gd_scene load_steps=32 format=3 uid="uid://buw7av0dt8bda"]
+[gd_scene load_steps=44 format=3 uid="uid://dffko30hnclt6"]
 
 [ext_resource type="Script" path="res://Scenes/OptionsMenu.gd" id="1_8bcw8"]
 [ext_resource type="Shader" path="res://Assets/Shaders/BG.gdshader" id="1_63v85"]
 [ext_resource type="Texture2D" uid="uid://dfk0ws1apgptm" path="res://Assets/Images/BG/Space.png" id="2_cmrpk"]
 [ext_resource type="Texture2D" uid="uid://ecn0n8wttl4l" path="res://Assets/Images/Menus/Options/Tablet.png" id="3_bul0s"]
-[ext_resource type="Theme" uid="uid://jlefapqly6nh" path="res://Assets/Data/default_theme.theme" id="4_mousm"]
+[ext_resource type="Theme" uid="uid://jlefapqly6nh" path="res://Assets/Data/tablet_theme.theme" id="5_faoh0"]
 [ext_resource type="FontFile" uid="uid://bcjvcavk6kkgm" path="res://Assets/Fonts/PixelOperatorHB.ttf" id="6_rw2m2"]
 [ext_resource type="Texture2D" uid="uid://cgmmislc3tyxk" path="res://Assets/Images/Menus/Options/CategoryIcons.png" id="8_m5lby"]
+[ext_resource type="FontFile" uid="uid://btmbcaberjtcd" path="res://Assets/Fonts/Sevastopol-Interface.ttf" id="8_wteru"]
+[ext_resource type="Texture2D" uid="uid://6eisgw7ffeyc" path="res://Assets/Images/Menus/Options/UI.png" id="9_dscv8"]
+[ext_resource type="Shader" path="res://Assets/Shaders/TabletColorFilter.gdshader" id="10_5n7mu"]
+[ext_resource type="Texture2D" uid="uid://wb6pa7664in1" path="res://Assets/Images/Menus/Options/TabletPalettes.png" id="11_8e0pa"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sltxr"]
 shader = ExtResource("1_63v85")
 shader_parameter/strengthX = 0.125
 shader_parameter/strengthY = 0.625
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_twx3p"]
-atlas = ExtResource("8_m5lby")
-region = Rect2(16, 0, 16, 16)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4pdpb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c2klr"]
+shader = ExtResource("10_5n7mu")
+shader_parameter/cur_palette = 0
+shader_parameter/palettes = ExtResource("11_8e0pa")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wrn34"]
 content_margin_left = 16.0
@@ -104,11 +111,40 @@ region = Rect2(64, 0, 16, 16)
 atlas = ExtResource("8_m5lby")
 region = Rect2(64, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxhfc"]
+atlas = ExtResource("8_m5lby")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elwoo"]
+atlas = ExtResource("8_m5lby")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnvxl"]
+atlas = ExtResource("8_m5lby")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5nn3s"]
+atlas = ExtResource("8_m5lby")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vx3vn"]
+atlas = ExtResource("8_m5lby")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twx3p"]
+atlas = ExtResource("8_m5lby")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87eae"]
+atlas = ExtResource("9_dscv8")
+region = Rect2(24, 16, 8, 8)
+
 [node name="OptionsMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 416.0
 offset_bottom = 240.0
+theme = ExtResource("5_faoh0")
 script = ExtResource("1_8bcw8")
 
 [node name="Space" type="TextureRect" parent="."]
@@ -119,6 +155,7 @@ offset_bottom = 208.0
 texture = ExtResource("2_cmrpk")
 
 [node name="Tablet" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_4pdpb")
 layout_mode = 0
 offset_left = 32.0
 offset_top = 16.0
@@ -126,65 +163,59 @@ offset_right = 384.0
 offset_bottom = 224.0
 texture = ExtResource("3_bul0s")
 
-[node name="Title" type="Label" parent="."]
-layout_mode = 0
-offset_left = 89.0
-offset_top = 38.0
-offset_right = 161.0
-offset_bottom = 54.0
-theme = ExtResource("4_mousm")
-theme_override_colors/font_shadow_color = Color(0.25098, 0.286275, 0.45098, 1)
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 1
-theme_override_fonts/font = ExtResource("6_rw2m2")
-theme_override_font_sizes/font_size = 16
-text = "Video"
-
-[node name="TitleIcon" type="TextureRect" parent="Title"]
-layout_mode = 0
-offset_left = -24.0
-offset_right = -8.0
-offset_bottom = 16.0
-texture = SubResource("AtlasTexture_twx3p")
-
-[node name="Options" type="ScrollContainer" parent="."]
-layout_mode = 0
+[node name="Screen" type="Control" parent="."]
+clip_children = 1
+anchors_preset = 0
 offset_left = 44.0
-offset_top = 66.0
+offset_top = 28.0
 offset_right = 372.0
-offset_bottom = 192.0
-theme = ExtResource("4_mousm")
+offset_bottom = 212.0
+
+[node name="ColorFilter" type="ColorRect" parent="Screen"]
+z_index = 10
+material = SubResource("ShaderMaterial_c2klr")
+layout_mode = 0
+offset_right = 328.0
+offset_bottom = 184.0
+mouse_filter = 2
+
+[node name="Options" type="ScrollContainer" parent="Screen"]
+layout_mode = 0
+offset_top = 38.0
+offset_right = 328.0
+offset_bottom = 164.0
+theme = ExtResource("5_faoh0")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_wrn34")
 horizontal_scroll_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Options"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Screen/Options"]
 custom_minimum_size = Vector2(288, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 3
 theme_override_constants/separation = 20
 
-[node name="Back" type="TextureButton" parent="."]
+[node name="Back" type="TextureButton" parent="Screen"]
 layout_mode = 0
-offset_left = 56.0
-offset_top = 194.0
-offset_right = 72.0
-offset_bottom = 210.0
+offset_left = 12.0
+offset_top = 166.0
+offset_right = 28.0
+offset_bottom = 182.0
 texture_normal = SubResource("AtlasTexture_u3wn7")
 texture_pressed = SubResource("AtlasTexture_sq8fp")
 texture_hover = SubResource("AtlasTexture_n23w5")
 texture_disabled = SubResource("AtlasTexture_i8ykr")
 texture_focused = SubResource("AtlasTexture_fbkvi")
 
-[node name="Categories" type="HBoxContainer" parent="."]
+[node name="Categories" type="HBoxContainer" parent="Screen"]
 layout_mode = 0
-offset_left = 96.0
-offset_top = 194.0
-offset_right = 184.0
-offset_bottom = 210.0
+offset_left = 52.0
+offset_top = 166.0
+offset_right = 140.0
+offset_bottom = 182.0
 theme_override_constants/separation = 8
 
-[node name="Video" type="TextureButton" parent="Categories"]
+[node name="Video" type="TextureButton" parent="Screen/Categories"]
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_30ryx")
 texture_pressed = SubResource("AtlasTexture_30ryx")
@@ -192,7 +223,7 @@ texture_hover = SubResource("AtlasTexture_crr8p")
 texture_disabled = SubResource("AtlasTexture_vrf7m")
 texture_focused = SubResource("AtlasTexture_3oqgp")
 
-[node name="Audio" type="TextureButton" parent="Categories"]
+[node name="Audio" type="TextureButton" parent="Screen/Categories"]
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_3p8vg")
 texture_pressed = SubResource("AtlasTexture_3p8vg")
@@ -200,7 +231,7 @@ texture_hover = SubResource("AtlasTexture_k8uxr")
 texture_disabled = SubResource("AtlasTexture_pgc6s")
 texture_focused = SubResource("AtlasTexture_2w37b")
 
-[node name="Input" type="TextureButton" parent="Categories"]
+[node name="Input" type="TextureButton" parent="Screen/Categories"]
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_vecgc")
 texture_pressed = SubResource("AtlasTexture_vecgc")
@@ -208,7 +239,7 @@ texture_hover = SubResource("AtlasTexture_e8all")
 texture_disabled = SubResource("AtlasTexture_yfveg")
 texture_focused = SubResource("AtlasTexture_37qdv")
 
-[node name="Accessibility" type="TextureButton" parent="Categories"]
+[node name="Accessibility" type="TextureButton" parent="Screen/Categories"]
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_4pimf")
 texture_pressed = SubResource("AtlasTexture_4pimf")
@@ -216,8 +247,48 @@ texture_hover = SubResource("AtlasTexture_qnuhb")
 texture_disabled = SubResource("AtlasTexture_d4kal")
 texture_focused = SubResource("AtlasTexture_fo5hu")
 
-[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="Categories/Video" to="." method="_on_category_pressed" binds= [0]]
-[connection signal="pressed" from="Categories/Audio" to="." method="_on_category_pressed" binds= [1]]
-[connection signal="pressed" from="Categories/Input" to="." method="_on_category_pressed" binds= [2]]
-[connection signal="pressed" from="Categories/Accessibility" to="." method="_on_category_pressed" binds= [3]]
+[node name="Customization" type="TextureButton" parent="Screen/Categories"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_bxhfc")
+texture_pressed = SubResource("AtlasTexture_elwoo")
+texture_hover = SubResource("AtlasTexture_gnvxl")
+texture_disabled = SubResource("AtlasTexture_5nn3s")
+texture_focused = SubResource("AtlasTexture_vx3vn")
+
+[node name="Title" type="Label" parent="Screen"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 10.0
+offset_right = 117.0
+offset_bottom = 26.0
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("6_rw2m2")
+theme_override_font_sizes/font_size = 16
+text = "Video"
+
+[node name="TitleIcon" type="TextureRect" parent="Screen/Title"]
+layout_mode = 0
+offset_left = -24.0
+offset_right = -8.0
+offset_bottom = 16.0
+texture = SubResource("AtlasTexture_twx3p")
+
+[node name="Reload" type="Button" parent="Screen"]
+layout_mode = 0
+offset_left = 258.0
+offset_top = 156.0
+offset_right = 320.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("8_wteru")
+theme_override_font_sizes/font_size = 16
+text = "Reload"
+icon = SubResource("AtlasTexture_87eae")
+
+[connection signal="pressed" from="Screen/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Screen/Categories/Video" to="." method="_on_category_pressed" binds= [0]]
+[connection signal="pressed" from="Screen/Categories/Audio" to="." method="_on_category_pressed" binds= [1]]
+[connection signal="pressed" from="Screen/Categories/Input" to="." method="_on_category_pressed" binds= [2]]
+[connection signal="pressed" from="Screen/Categories/Accessibility" to="." method="_on_category_pressed" binds= [3]]
+[connection signal="pressed" from="Screen/Categories/Customization" to="." method="_on_category_pressed" binds= [4]]
+[connection signal="pressed" from="Screen/Reload" to="." method="_on_reload_pressed"]

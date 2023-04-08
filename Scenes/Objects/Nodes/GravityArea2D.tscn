@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/Objects/Nodes/GravityArea2D.gd" id="1_rji2r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5rwd7"]
-radius = 110.0
+radius = 80.0
 
 [node name="GravityArea2D" type="Area2D"]
 script = ExtResource("1_rji2r")

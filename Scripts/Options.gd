@@ -17,7 +17,7 @@ func _ready():
 			if !options.has(cat):
 				options[cat] = {}
 			for setting in def_options[cat].settings.keys():
-				if !options[cat].has(setting):
+				if !options[cat].has(setting) and def_options[cat].settings[setting].has("def_value"):
 					options[cat][setting] = def_options[cat].settings[setting].def_value
 		save()
 				
@@ -51,7 +51,6 @@ func reload_option(_cat, id):
 			Engine.max_fps = int(fmod(value, 250))
 		'window_scale':
 			DisplayServer.window_set_size(Vector2i(416, 240)*value)
-			DisplayServer.window_set_position((DisplayServer.screen_get_size()-DisplayServer.window_get_size())/2)
 		'vsync':
 			DisplayServer.window_set_vsync_mode(value)
 		'borderless':
@@ -71,3 +70,8 @@ func reload_option(_cat, id):
 			
 		'screenshake_factor':
 			Global.screenshake_factor = value/100
+			
+		'tablet_color_scheme':
+			if get_tree().get_root().has_node("OptionsMenu"):
+				get_tree().get_root().get_node("OptionsMenu").reload_tablet()
+			

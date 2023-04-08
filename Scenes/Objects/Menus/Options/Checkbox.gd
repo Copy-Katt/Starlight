@@ -3,7 +3,10 @@ extends Control
 
 @export var category := 'none'
 
-@export var option_name := 'CheckBox'
+@export var option_name := 'CheckBox':
+	set(value):
+		$CheckBox.text = value
+		option_name = value
 @export var option_id := 'checkbox'
 @export var option_value := false:
 	set(value):
@@ -12,9 +15,6 @@ extends Control
 
 func _ready():
 	$CheckBox.button_pressed = option_value
-
-func _process(_delta):
-	$CheckBox.text = option_name
 
 func _on_check_box_pressed():
 	Global.Sound.play_sound('MenuGrab', SoundIgnoreType.PASS_THROUGH)

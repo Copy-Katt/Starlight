@@ -31,7 +31,8 @@
 			"borderless": {
 				"name": "Borderless Window",
 				"type": "bool",
-				"def_value": false
+				"def_value": false,
+				"updates": false
 			},
 			"fullscreen": {
 				"name": "Fullscreen",
@@ -75,8 +76,34 @@
 		}
 	},
 	"input": {
-		"name": "(WIP) Input",
-		"settings": {}
+		"name": "Input",
+		"settings": {
+			"walk_left": {
+				"name": "Walk Left",
+				"type": "key",
+				"def_value": [65, 4194319]
+			},
+			"walk_right": {
+				"name": "Walk Right",
+				"type": "key",
+				"def_value": [68, 4194321]
+			},
+			"walk_down": {
+				"name": "Drop / Walk Down",
+				"type": "key",
+				"def_value": [83, 4194322]
+			},
+			"jump": {
+				"name": "Jump",
+				"type": "key",
+				"def_value": [32, 4194320]
+			},
+			"run": {
+				"name": "Run",
+				"type": "key",
+				"def_value": [4194325, 90]
+			}
+		}
 	},
 	"accessibility": {
 		"name": "Accessibility Settings",
@@ -93,6 +120,25 @@
 					"100": "Max"
 				},
 				"suffix": "%"
+			}
+		}
+	},
+	"customization": {
+		"name": "Customization",
+		"settings": {
+			"tablet_color_scheme": {
+				"name": "Tablet Color Scheme",
+				"type": "num",
+				"def_value": 0,
+				"min": 0,
+				"max": 3,
+				"step": 1,
+				"swaps": {
+					"0": "Blue",
+					"1": "Red",
+					"2": "Purple",
+					"3": "Green"
+				}
 			}
 		}
 	}

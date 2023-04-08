@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://pcxb6jx2upqy"]
+
+[ext_resource type="Theme" uid="uid://jlefapqly6nh" path="res://Assets/Data/tablet_theme.theme" id="1_6jm1g"]
+[ext_resource type="Script" path="res://Scenes/Objects/Menus/Options/Key.gd" id="1_ms7vt"]
+
+[node name="Key" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -266.0
+offset_bottom = -226.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_6jm1g")
+script = ExtResource("1_ms7vt")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 88.0
+offset_bottom = 15.0
+text = "Walk Left"
+
+[node name="Key1" type="Button" parent="."]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 1.0
+offset_right = 137.0
+offset_bottom = 13.0
+text = "A"
+
+[node name="Key2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 1.0
+offset_right = 189.0
+offset_bottom = 13.0
+text = "Left"
+
+[connection signal="pressed" from="Key1" to="." method="_on_key_pressed" binds= [1]]
+[connection signal="pressed" from="Key2" to="." method="_on_key_pressed" binds= [2]]

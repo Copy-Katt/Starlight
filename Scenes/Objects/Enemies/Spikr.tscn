@@ -1,7 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://d4cppndh75vfd"]
+[gd_scene load_steps=10 format=3 uid="uid://d4cppndh75vfd"]
 
 [ext_resource type="Script" path="res://Scenes/Objects/Enemies/Spikr.gd" id="1_2q2oc"]
 [ext_resource type="Texture2D" uid="uid://bqusr5fxgqvyk" path="res://Assets/Images/Enemies/Spikr.png" id="1_c4cwb"]
+[ext_resource type="Shader" path="res://Assets/Shaders/Spikr_Spikes.gdshader" id="2_mnmbq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r58gw"]
+shader = ExtResource("2_mnmbq")
+shader_parameter/invert_direction = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vcd6o"]
 atlas = ExtResource("1_c4cwb")
@@ -25,6 +30,7 @@ radius = 7.0
 script = ExtResource("1_2q2oc")
 
 [node name="Spikes" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_r58gw")
 texture = SubResource("AtlasTexture_vcd6o")
 
 [node name="Body" type="Sprite2D" parent="."]
@@ -37,6 +43,7 @@ position = Vector2(1, 0)
 texture = SubResource("AtlasTexture_bgw15")
 
 [node name="Area" type="Area2D" parent="."]
+visible = false
 
 [node name="Shape" type="CollisionShape2D" parent="Area"]
 rotation = 1.5708
@@ -44,6 +51,12 @@ shape = SubResource("CircleShape2D_smcc1")
 debug_color = Color(0.745098, 0.0117647, 0, 0.419608)
 
 [node name="Collision" type="StaticBody2D" parent="."]
+visible = false
 
 [node name="Shape" type="CollisionShape2D" parent="Collision"]
 shape = SubResource("CircleShape2D_np7rc")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="show"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="hide"]

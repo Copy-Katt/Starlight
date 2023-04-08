@@ -5,9 +5,15 @@ var Game : Node
 
 var can_swap_scene = true
 
-var gem_amount := 0
-var lifes := 3
-var score := 0
+var gem_amount := 0:
+	set(value):
+		gem_amount = max(0,value)
+var lifes := 3:
+	set(value):
+		lifes = max(0,value)
+var score := 0:
+	set(value):
+		score = max(0,value)
 
 var start_pos : Vector2
 var cur_music = null
@@ -19,19 +25,38 @@ var music_vol = 100
 var sfx_vol = 100
 var screenshake_factor = 1
 
+var keycode_name_map = {
+	'CapsLock': 'CpsLk',
+	'Backspace': 'BckSp',
+	'Escape': 'Esc',
+	'QuoteLeft': '"',
+	'BracketLeft': '[',
+	'BracketRight': ']',
+	'Apostrophe': '\'',
+	'Slash': '/',
+	'BackSlash': '\\',
+	'Bar': '|',
+	'Windows': 'Wnds',
+	'Comma': ',',
+	'Period': '.',
+	'Insert': 'Ins',
+	'PageUp': 'PgUp',
+	'PageDown': 'PgDn',
+	'Delete': 'Del',
+	'ScrollLock': 'ScrLk'
+}
+
 func _ready():
 	randomize()
 	play_music('EndlessVoid')
+	await get_tree().process_frame
+	DisplayServer.window_set_position((DisplayServer.screen_get_size()-DisplayServer.window_get_size())/2)
 	
 func _process(_delta):
 	if Engine.max_fps != 0:
 		$Info.text = str(min(Engine.get_frames_per_second(), Engine.max_fps)) + '/' + str(Engine.max_fps) + ' FPS'
 	else:
 		$Info.text = str(Engine.get_frames_per_second()) + ' FPS'
-	
-	lifes = max(0,lifes)
-	score = max(0,score)
-	gem_amount = max(0,gem_amount)
 
 func fill_num(num: int, length: int) -> String:
 	var string = str(num)
@@ -89,6 +114,13 @@ func screen_shake(duration, intensity):
 	await get_tree().create_timer(duration).timeout
 	$ScreenEffects.material.set_shader_parameter('shake_active', false)
 	
+func string_from_keycode(keycode):
+	if OS.get_keycode_string(keycode) in keycode_name_map.keys():
+		return keycode_name_map[OS.get_keycode_string(keycode)]
+	else:
+		return OS.get_keycode_string(keycode)
+
+
 #func send_to_discord(webhook, info):
 #	var http_request = HTTPRequest.new()
 #	add_child(http_request)

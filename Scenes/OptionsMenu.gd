@@ -2,29 +2,47 @@ extends Control
 
 var option_types := {
 	'bool': preload("res://Scenes/Objects/Menus/Options/Checkbox.tscn"),
-	'num': preload("res://Scenes/Objects/Menus/Options/Slider.tscn")
+	'num': preload("res://Scenes/Objects/Menus/Options/Slider.tscn"),
+	'key': preload("res://Scenes/Objects/Menus/Options/Key.tscn")
 }
-
-var categories := [
-	'video',
-	'audio',
-	'input',
-	'accessibility'
-]
 
 var cur_category := 0
 
 func _ready():
+	$Screen/ColorFilter.material.set_shader_parameter('cur_palette', Options.options.customization.tablet_color_scheme)
 	load_page()
 	
+func anim_load_page(cat):
+	var dir = (cur_category-cat)/abs(cur_category-cat)
+	cur_category = cat
+	var transition_time = 0.1
+	var def_pos = $Screen/Options/VBoxContainer.position.x
+	
+	load_page()
+	var tween = get_tree().create_tween()
+	tween.tween_property(
+		$Screen/Options/VBoxContainer, 
+		"position:x",
+		def_pos+dir*-3,
+		transition_time/2
+	)
+	await get_tree().create_timer(transition_time/2+0.05).timeout
+	tween = get_tree().create_tween()
+	tween.tween_property(
+		$Screen/Options/VBoxContainer, 
+		"position:x",
+		def_pos,
+		transition_time/2
+	)
+	
 func load_page():
-	for i in Options.def_options[categories[cur_category]].settings.keys():
-		var i_val = Options.def_options[categories[cur_category]].settings[i]
+	for i in Options.def_options[Options.def_options.keys()[cur_category]].settings.keys():
+		var i_val = Options.def_options[Options.def_options.keys()[cur_category]].settings[i]
 		
 		var option = option_types[i_val.type].instantiate()
 		option.option_id = i
 		option.option_name = i_val.name
-		option.category = categories[cur_category]
+		option.category = Options.def_options.keys()[cur_category]
 		
 		match(i_val.type):
 			'num':
@@ -34,21 +52,20 @@ func load_page():
 				if i_val.has('swaps'): option.option_swaps = i_val.swaps
 				if i_val.has('suffix'): option.option_suffix = i_val.suffix
 		
-		if Options.options[categories[cur_category]].keys().has(i):
-			option.option_value = Options.options[categories[cur_category]][i]
-		$Options/VBoxContainer.add_child(option)
-			
-		
-	$Title.text = Options.def_options[categories[cur_category]].name
-	$Title/TitleIcon.texture = $Categories.get_child(cur_category).texture_normal
+		if Options.options[Options.def_options.keys()[cur_category]].keys().has(i):
+			option.option_value = Options.options[Options.def_options.keys()[cur_category]][i]
+		$Screen/Options/VBoxContainer.add_child(option)
+	
+	$Screen/Title.text = Options.def_options[Options.def_options.keys()[cur_category]].name
+	$Screen/Title/TitleIcon.texture = $Screen/Categories.get_child(cur_category).texture_normal
 
 
 func _on_category_pressed(cat):
-	cur_category = cat
-	for i in $Options/VBoxContainer.get_children():
-		i.queue_free()
-	load_page()
-	Global.Sound.play_sound('MenuSwap', SoundIgnoreType.PASS_THROUGH)
+	if cur_category-cat != 0:
+		for i in $Screen/Options/VBoxContainer.get_children():
+			i.queue_free()
+		anim_load_page(cat)
+		Global.Sound.play_sound('MenuSwap', SoundIgnoreType.PASS_THROUGH)
 
 func _on_back_pressed():
 	Options.save()
@@ -56,3 +73,10 @@ func _on_back_pressed():
 	if Global.can_swap_scene:
 		Global.Sound.play_sound('MenuAccept', SoundIgnoreType.PASS_THROUGH)
 	Global.switch_scene("res://Scenes/TitleScreen.tscn")
+
+func _on_reload_pressed():
+	Global.Sound.play_sound('MenuAccept', SoundIgnoreType.PASS_THROUGH)
+	Options.reload()
+	
+func reload_tablet():
+	$Screen/ColorFilter.material.set_shader_parameter('cur_palette', Options.options.customization.tablet_color_scheme)
