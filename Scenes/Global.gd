@@ -3,7 +3,7 @@ extends CanvasLayer
 @onready var Sound := $SCSoundManager
 var Game : Node
 
-var can_swap_scene = true
+var can_swap_scene := true
 
 var gem_amount := 0:
 	set(value):
@@ -21,11 +21,11 @@ var cur_music = null
 # Level Information
 var level_data : Node2D
 
-var music_vol = 100
-var sfx_vol = 100
-var screenshake_factor = 1
+var music_vol := 100
+var sfx_vol := 100
+var screenshake_factor := 1
 
-var keycode_name_map = {
+var keycode_name_map := {
 	'CapsLock': 'CpsLk',
 	'Backspace': 'BckSp',
 	'Escape': 'Esc',
@@ -46,9 +46,49 @@ var keycode_name_map = {
 	'ScrollLock': 'ScrLk'
 }
 
+var joypad_name_map := {
+	"InputEventJoypadButton": {
+		JoyButton.JOY_BUTTON_INVALID: "Invalid",
+		JoyButton.JOY_BUTTON_A: "↓ Button",
+		JoyButton.JOY_BUTTON_B: "→ Button",
+		JoyButton.JOY_BUTTON_X: "← Button",
+		JoyButton.JOY_BUTTON_Y: "↑ Button",
+		JoyButton.JOY_BUTTON_BACK: "Select",
+		JoyButton.JOY_BUTTON_GUIDE: "Home",
+		JoyButton.JOY_BUTTON_START: "Start",
+		JoyButton.JOY_BUTTON_LEFT_STICK: "Left Stick",
+		JoyButton.JOY_BUTTON_RIGHT_STICK: "Right Stick",
+		JoyButton.JOY_BUTTON_LEFT_SHOULDER: "L1",
+		JoyButton.JOY_BUTTON_RIGHT_SHOULDER: "R1",
+		JoyButton.JOY_BUTTON_DPAD_UP: "D-pad ↑",
+		JoyButton.JOY_BUTTON_DPAD_DOWN: "D-pad ↓",
+		JoyButton.JOY_BUTTON_DPAD_LEFT: "D-pad ←",
+		JoyButton.JOY_BUTTON_DPAD_RIGHT: "D-pad →",
+	},
+	"InputEventJoypadMotion": {
+		JoyAxis.JOY_AXIS_INVALID: ["Invalid", "Invalid"],
+		JoyAxis.JOY_AXIS_LEFT_X: ["LS-Left", "LS-Right"],
+		JoyAxis.JOY_AXIS_LEFT_Y: ["LS-Up", "LS-Down"],
+		JoyAxis.JOY_AXIS_RIGHT_X: ["RS-Left", "RS-Right"],
+		JoyAxis.JOY_AXIS_RIGHT_Y: ["RS-Up", "RS-Down"],
+		JoyAxis.JOY_AXIS_TRIGGER_LEFT: ["L2", "L2"],
+		JoyAxis.JOY_AXIS_TRIGGER_RIGHT: ["R2", "R2"]
+	}
+}
+
+var cursor = preload("res://Assets/Images/Menus/General/Mouse.png")
+
 func _ready():
 	randomize()
 	play_music('EndlessVoid')
+	DisplayServer.window_set_title("♦ Starlight ♦")
+	for i in 3:
+		var _tex = AtlasTexture.new()
+		_tex.atlas = cursor.get_image()
+		_tex.region = Rect2(0, i*6, 9, 6)
+		
+		var tex = ImageTexture.create_from_image(_tex.get_image())
+		Input.set_custom_mouse_cursor(tex, i as Input.CursorShape, Vector2(4,1))
 	await get_tree().process_frame
 	DisplayServer.window_set_position((DisplayServer.screen_get_size()-DisplayServer.window_get_size())/2)
 	

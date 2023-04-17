@@ -1,18 +1,17 @@
-[gd_scene load_steps=43 format=3 uid="uid://hkbpptyrwbj3"]
+[gd_scene load_steps=44 format=3 uid="uid://hkbpptyrwbj3"]
 
 [ext_resource type="Texture2D" uid="uid://cnnqkxdix2jix" path="res://Assets/Images/Pixelnaut/Pixelnaut.png" id="1_6m33x"]
 [ext_resource type="Script" path="res://Scenes/Objects/Player.gd" id="1_v30gf"]
 [ext_resource type="Shader" path="res://Assets/Shaders/Player.gdshader" id="2_e5htu"]
+[ext_resource type="Texture2D" uid="uid://b04sxkgxydcg" path="res://Assets/Images/Pixelnaut/PixelnautShine.png" id="3_qdjqa"]
 [ext_resource type="Texture2D" uid="uid://dnoxpsek6jxjo" path="res://Assets/Images/Pixelnaut/DeathExplosion.png" id="4_td573"]
 [ext_resource type="FontFile" uid="uid://lfyxkqn7db31" path="res://Assets/Fonts/small_5x3.ttf" id="5_ffa2w"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ahsa0"]
 shader = ExtResource("2_e5htu")
-shader_parameter/visor_color = Color(0.172549, 0.207843, 0.301961, 1)
-shader_parameter/visor_color_2 = Color(0.25098, 0.286275, 0.45098, 1)
-shader_parameter/shine_color = Color(0.960784, 1, 0.909804, 1)
 shader_parameter/flash_color = Color(0.960784, 1, 0.909804, 1)
 shader_parameter/flashing = false
+shader_parameter/shine_bitmask = ExtResource("3_qdjqa")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kcfmi"]
 atlas = ExtResource("1_6m33x")

@@ -46,6 +46,13 @@ func reload():
 	
 func reload_option(_cat, id):
 	var value = options[_cat][id]
+	
+	if def_options.has(_cat) and def_options[_cat].settings.has(id) and def_options[_cat].settings[id].has('type'):
+		if def_options[_cat].settings[id].type == 'key':
+			for i in value:
+				var ie = InputEventKey.new()
+				ie.keycode = i
+				InputMap.action_add_event(id, ie)
 	match id:
 		'max_fps':
 			Engine.max_fps = int(fmod(value, 250))

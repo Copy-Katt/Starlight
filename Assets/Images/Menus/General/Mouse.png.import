@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6eisgw7ffeyc"
-path="res://.godot/imported/Buttons.png-4ea6dd148e3c400a54b57c1d82a0604b.ctex"
+uid="uid://cst636f307tkx"
+path="res://.godot/imported/Mouse.png-c17d5f0c3eee30e2c4461c1858b861e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Menus/Options/Buttons.png"
-dest_files=["res://.godot/imported/Buttons.png-4ea6dd148e3c400a54b57c1d82a0604b.ctex"]
+source_file="res://Assets/Images/Menus/General/Mouse.png"
+dest_files=["res://.godot/imported/Mouse.png-c17d5f0c3eee30e2c4461c1858b861e1.ctex"]
 
 [params]
 
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

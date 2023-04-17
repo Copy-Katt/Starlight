@@ -1,15 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://pcxb6jx2upqy"]
+[gd_scene load_steps=5 format=3 uid="uid://pcxb6jx2upqy"]
 
 [ext_resource type="Theme" uid="uid://jlefapqly6nh" path="res://Assets/Data/tablet_theme.theme" id="1_6jm1g"]
 [ext_resource type="Script" path="res://Scenes/Objects/Menus/Options/Key.gd" id="1_ms7vt"]
+[ext_resource type="Texture2D" uid="uid://cwjl7hshcx464" path="res://Assets/Images/Menus/Options/Joystick.png" id="3_novwp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ou0b"]
+atlas = ExtResource("3_novwp")
+region = Rect2(0, 0, 18, 18)
 
 [node name="Key" type="Control"]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -266.0
-offset_bottom = -226.0
+offset_right = -226.0
+offset_bottom = -200.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_6jm1g")
@@ -19,8 +25,9 @@ script = ExtResource("1_ms7vt")
 layout_mode = 0
 offset_left = 1.0
 offset_right = 88.0
-offset_bottom = 15.0
+offset_bottom = 38.0
 text = "Walk Left"
+vertical_alignment = 1
 
 [node name="Key1" type="Button" parent="."]
 layout_mode = 0
@@ -38,5 +45,15 @@ offset_right = 189.0
 offset_bottom = 13.0
 text = "Left"
 
+[node name="Key3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 16.0
+offset_right = 189.0
+offset_bottom = 38.0
+text = "Dpad UP"
+icon = SubResource("AtlasTexture_0ou0b")
+
 [connection signal="pressed" from="Key1" to="." method="_on_key_pressed" binds= [1]]
 [connection signal="pressed" from="Key2" to="." method="_on_key_pressed" binds= [2]]
+[connection signal="pressed" from="Key3" to="." method="_on_key_pressed"]

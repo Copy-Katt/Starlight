@@ -60,10 +60,11 @@ func _physics_process(_delta):
 		
 	# Custom Gravity Detector
 		up_direction = Vector2.UP
-		rotation = 0
 		if GravityDetect.get_collider() is GravityArea2D:
 			up_direction = -Vector2.from_angle(global_position.angle_to_point(GravityDetect.get_collider().center))
 			rotation = up_direction.angle()+PI/2
+		else:
+			rotation = 0
 		old_right_direction = right_direction
 		right_direction = Vector2.from_angle(up_direction.angle()+PI/2)
 		

@@ -2,23 +2,23 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhmiviyu3r8rc"
-path="res://.godot/imported/Base.png-891962bd57469b0d995a68bc4398ed90.ctex"
+uid="uid://dmwhccac7utqn"
+path="res://.godot/imported/Stars.png-d786924a6f2faf8d9eea51bff11e968c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Menus/TitleScreen/Base.png"
-dest_files=["res://.godot/imported/Base.png-891962bd57469b0d995a68bc4398ed90.ctex"]
+source_file="res://Assets/Images/Menus/TitleScreen/Stars.png"
+dest_files=["res://.godot/imported/Stars.png-d786924a6f2faf8d9eea51bff11e968c.ctex"]
 
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

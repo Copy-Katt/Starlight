@@ -1,23 +1,22 @@
-[gd_scene load_steps=44 format=3 uid="uid://dffko30hnclt6"]
+[gd_scene load_steps=45 format=3 uid="uid://bpe3gyfxgrkon"]
 
 [ext_resource type="Script" path="res://Scenes/OptionsMenu.gd" id="1_8bcw8"]
-[ext_resource type="Shader" path="res://Assets/Shaders/BG.gdshader" id="1_63v85"]
-[ext_resource type="Texture2D" uid="uid://dfk0ws1apgptm" path="res://Assets/Images/BG/Space.png" id="2_cmrpk"]
 [ext_resource type="Texture2D" uid="uid://ecn0n8wttl4l" path="res://Assets/Images/Menus/Options/Tablet.png" id="3_bul0s"]
+[ext_resource type="Texture2D" uid="uid://dhijcklvj513o" path="res://Assets/Images/Menus/TitleScreen/BG.png" id="3_lagsu"]
+[ext_resource type="Shader" path="res://Assets/Shaders/MenuBG.gdshader" id="4_xmujq"]
+[ext_resource type="Texture2D" uid="uid://dmwhccac7utqn" path="res://Assets/Images/Menus/TitleScreen/Stars.png" id="5_64xrv"]
 [ext_resource type="Theme" uid="uid://jlefapqly6nh" path="res://Assets/Data/tablet_theme.theme" id="5_faoh0"]
 [ext_resource type="FontFile" uid="uid://bcjvcavk6kkgm" path="res://Assets/Fonts/PixelOperatorHB.ttf" id="6_rw2m2"]
+[ext_resource type="Texture2D" uid="uid://dhpopjk0kmtqh" path="res://Assets/Images/Menus/Options/TabletScreen.png" id="8_718yo"]
 [ext_resource type="Texture2D" uid="uid://cgmmislc3tyxk" path="res://Assets/Images/Menus/Options/CategoryIcons.png" id="8_m5lby"]
 [ext_resource type="FontFile" uid="uid://btmbcaberjtcd" path="res://Assets/Fonts/Sevastopol-Interface.ttf" id="8_wteru"]
-[ext_resource type="Texture2D" uid="uid://6eisgw7ffeyc" path="res://Assets/Images/Menus/Options/UI.png" id="9_dscv8"]
 [ext_resource type="Shader" path="res://Assets/Shaders/TabletColorFilter.gdshader" id="10_5n7mu"]
 [ext_resource type="Texture2D" uid="uid://wb6pa7664in1" path="res://Assets/Images/Menus/Options/TabletPalettes.png" id="11_8e0pa"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sltxr"]
-shader = ExtResource("1_63v85")
-shader_parameter/strengthX = 0.125
-shader_parameter/strengthY = 0.625
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4pdpb"]
+shader = ExtResource("4_xmujq")
+shader_parameter/strengthX = -0.05
+shader_parameter/strengthY = -0.025
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c2klr"]
 shader = ExtResource("10_5n7mu")
@@ -135,8 +134,11 @@ region = Rect2(80, 0, 16, 16)
 atlas = ExtResource("8_m5lby")
 region = Rect2(16, 0, 16, 16)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_c3y1y"]
+load_path = "res://.godot/imported/UI.png-4cf5b8765d950279df1aab0a4659dea9.ctex"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_87eae"]
-atlas = ExtResource("9_dscv8")
+atlas = SubResource("CompressedTexture2D_c3y1y")
 region = Rect2(24, 16, 8, 8)
 
 [node name="OptionsMenu" type="Control"]
@@ -147,20 +149,27 @@ offset_bottom = 240.0
 theme = ExtResource("5_faoh0")
 script = ExtResource("1_8bcw8")
 
-[node name="Space" type="TextureRect" parent="."]
+[node name="BG" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 416.0
+offset_bottom = 240.0
+texture = ExtResource("3_lagsu")
+
+[node name="Stars" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_sltxr")
 layout_mode = 0
 offset_right = 352.0
 offset_bottom = 208.0
-texture = ExtResource("2_cmrpk")
+texture = ExtResource("5_64xrv")
 
-[node name="Tablet" type="TextureRect" parent="."]
-material = SubResource("ShaderMaterial_4pdpb")
+[node name="TabletBorder" type="TextureRect" parent="."]
+z_index = 1
 layout_mode = 0
 offset_left = 32.0
 offset_top = 16.0
 offset_right = 384.0
 offset_bottom = 224.0
+mouse_filter = 2
 texture = ExtResource("3_bul0s")
 
 [node name="Screen" type="Control" parent="."]
@@ -178,6 +187,13 @@ layout_mode = 0
 offset_right = 328.0
 offset_bottom = 184.0
 mouse_filter = 2
+
+[node name="Screen" type="TextureRect" parent="Screen"]
+layout_mode = 0
+offset_right = 328.0
+offset_bottom = 184.0
+mouse_filter = 2
+texture = ExtResource("8_718yo")
 
 [node name="Options" type="ScrollContainer" parent="Screen"]
 layout_mode = 0
@@ -265,7 +281,7 @@ theme_override_constants/shadow_offset_x = 0
 theme_override_constants/shadow_offset_y = 1
 theme_override_fonts/font = ExtResource("6_rw2m2")
 theme_override_font_sizes/font_size = 16
-text = "Video"
+text = "Category Name"
 
 [node name="TitleIcon" type="TextureRect" parent="Screen/Title"]
 layout_mode = 0

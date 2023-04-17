@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6eisgw7ffeyc"
-path="res://.godot/imported/Buttons.png-4ea6dd148e3c400a54b57c1d82a0604b.ctex"
+uid="uid://dhpopjk0kmtqh"
+path="res://.godot/imported/TabletScreen.png-12c5bfa6a62a8372702aabcf5cb1d3ea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Menus/Options/Buttons.png"
-dest_files=["res://.godot/imported/Buttons.png-4ea6dd148e3c400a54b57c1d82a0604b.ctex"]
+source_file="res://Assets/Images/Menus/Options/TabletScreen.png"
+dest_files=["res://.godot/imported/TabletScreen.png-12c5bfa6a62a8372702aabcf5cb1d3ea.ctex"]
 
 [params]
 

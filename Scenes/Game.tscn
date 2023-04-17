@@ -1,8 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://dqrclftt6ifdh"]
+[gd_scene load_steps=29 format=3 uid="uid://djwqp11ayawqp"]
 
 [ext_resource type="Script" path="res://Scenes/Game.gd" id="1_j2yyy"]
 [ext_resource type="Texture2D" uid="uid://dfk0ws1apgptm" path="res://Assets/Images/BG/Space.png" id="1_v1fbu"]
-[ext_resource type="Shader" path="res://Assets/Shaders/BG.gdshader" id="2_2eayk"]
+[ext_resource type="Shader" path="res://Assets/Shaders/SpaceBG.gdshader" id="2_c07vy"]
 [ext_resource type="Texture2D" uid="uid://bwnwoy1gx7njq" path="res://Assets/Images/BG/Planets.png" id="2_os2pj"]
 [ext_resource type="PackedScene" uid="uid://hkbpptyrwbj3" path="res://Scenes/Objects/Player.tscn" id="6_amtry"]
 [ext_resource type="Texture2D" uid="uid://deek3cuchnarj" path="res://Assets/Images/UI/GemDisplayUnderlay.png" id="9_oxoh3"]
@@ -12,17 +12,17 @@
 [ext_resource type="Texture2D" uid="uid://duu6o2e6twup8" path="res://Assets/Images/UI/02Bar.png" id="14_2mnt8"]
 [ext_resource type="FontFile" uid="uid://4l6hnm68kiij" path="res://Assets/Fonts/pressstart2p-regular.ttf" id="20_g4nx7"]
 [ext_resource type="Shader" path="res://Assets/Shaders/Shine.gdshader" id="20_j5cjc"]
-[ext_resource type="Theme" uid="uid://jlefapqly6nh" path="res://Assets/Data/default_theme.theme" id="23_ihvp7"]
+[ext_resource type="Theme" uid="uid://jlefapqly6nh" path="res://Assets/Data/tablet_theme.theme" id="23_ihvp7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jdk5a"]
-shader = ExtResource("2_2eayk")
-shader_parameter/strengthX = 0.125
-shader_parameter/strengthY = 0.625
+shader = ExtResource("2_c07vy")
+shader_parameter/strengthX = 0.0125
+shader_parameter/strengthY = 0.0625
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fllwg"]
-shader = ExtResource("2_2eayk")
-shader_parameter/strengthX = 0.5
-shader_parameter/strengthY = 2.5
+shader = ExtResource("2_c07vy")
+shader_parameter/strengthX = 0.05
+shader_parameter/strengthY = 0.25
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_oet62"]
 normal = Vector2(1, 0)
@@ -67,6 +67,12 @@ font_size = 8
 font = ExtResource("13_nyblk")
 font_size = 32
 font_color = Color(0.960784, 1, 0.909804, 1)
+
+[sub_resource type="Sky" id="Sky_q2idv"]
+
+[sub_resource type="Environment" id="Environment_3seyd"]
+background_mode = 2
+sky = SubResource("Sky_q2idv")
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_j2yyy")
@@ -170,7 +176,11 @@ label_settings = SubResource("LabelSettings_tp2pt")
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(75, 184)
+ignore_rotation = false
 limit_left = 0
 limit_bottom = 240
 position_smoothing_enabled = true
 position_smoothing_speed = 4.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3seyd")

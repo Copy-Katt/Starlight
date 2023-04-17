@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6eisgw7ffeyc"
-path="res://.godot/imported/Buttons.png-4ea6dd148e3c400a54b57c1d82a0604b.ctex"
+uid="uid://b04sxkgxydcg"
+path="res://.godot/imported/PixelnautShine.png-c35d56223bbac61d6eba761f0f3ff8ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Menus/Options/Buttons.png"
-dest_files=["res://.godot/imported/Buttons.png-4ea6dd148e3c400a54b57c1d82a0604b.ctex"]
+source_file="res://Assets/Images/Pixelnaut/PixelnautShine.png"
+dest_files=["res://.godot/imported/PixelnautShine.png-c35d56223bbac61d6eba761f0f3ff8ff.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

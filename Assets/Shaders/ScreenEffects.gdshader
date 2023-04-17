@@ -13,17 +13,13 @@ float rand(vec2 co){
 }
 
 void fragment() {
-	bool is_transition_pixel = false;
-	if (!(distance(1.0+sin((UV.x+UV.y)*20.0)/100.0, UV.x) >= transition_value) &&
-		!(distance(1.0+sin((UV.x+UV.y)*20.0)/100.0, UV.x) <= transition_value-1.5)) {
-		is_transition_pixel = true;
-	}
-	if (is_transition_pixel) {
+	float a = (distance(1.0+sin((UV.x+UV.y)*20.0)/100.0, UV.x));
+	if (a < transition_value && a > transition_value-1.5) {
 		COLOR = transition_color;
 	} else if (shake_active) {
 		COLOR = texture(SCREEN_TEXTURE, SCREEN_UV + vec2(
 			0.5-rand( vec2(TIME) ),
-			0.5-rand( vec2(rand(vec2(TIME))) )
+			0.5-rand( vec2(TIME+1.0) )
 		)/500.0 * shake_intensity);
 	} else {
 		discard;

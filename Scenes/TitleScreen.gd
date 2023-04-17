@@ -1,7 +1,7 @@
 extends Node2D
 
 var cur_selected = 0
-var last_cur_selected = 0
+var last_cur_selected = -1
 var functions = [
 	func (): Global.switch_scene("res://Scenes/Game.tscn"),
 	func (): Global.switch_scene("res://Scenes/OptionsMenu.tscn"),
@@ -15,9 +15,6 @@ var mouse_pos = Vector2.ZERO
 func _ready():
 	randomize()
 	update_selection()
-	for i in $CornerSprites.get_children():
-		i.position.x = sin(i.get_index()/float($CornerSprites.get_child_count())*PI*2)*randi_range(96, 128)
-		i.position.y = cos(i.get_index()/float($CornerSprites.get_child_count())*PI*2)*randi_range(96, 128)
 	
 func _process(_delta):
 	last_cur_selected = cur_selected
@@ -46,15 +43,11 @@ func _process(_delta):
 	for i in $ChooseOptions.get_children():
 		if mouse_controlled and i.is_hovered():
 			cur_selected = i.get_index()
-			update_selection()
+			if cur_selected != last_cur_selected:
+				update_selection()
 	
 	if last_cur_selected != cur_selected and cur_selected >= 0:
-		Global.Sound.play_sound('MenuSwap', SoundIgnoreType.PASS_THROUGH)
-	
-	
-	for i in $CornerSprites.get_children():
-		i.global_rotation = 0
-	$CornerSprites.rotation += _delta*0.1
+		Global.Sound.play_sound('MenuSwap', SoundIgnoreType.REPLACE)
 
 func update_selection():
 	var selected_node = $ChooseOptions.get_child(cur_selected)
@@ -63,7 +56,21 @@ func update_selection():
 			i.add_theme_color_override('font_color', Color('f5ffe8'))
 			i.add_theme_color_override('font_pressed_color', Color('f5ffe8'))
 			i.add_theme_color_override('font_hover_color', Color('f5ffe8'))
+			i.add_theme_color_override('icon_normal_color', Color('f5ffe8'))
+			i.add_theme_color_override('icon_pressed_color', Color('f5ffe8'))
+			i.add_theme_color_override('icon_hover_color', Color('f5ffe8'))
+			if i == $ChooseOptions/Play:
+				$ChooseOptions/Play.icon.region.position.y = 24
 		else:
-			i.add_theme_color_override('font_color', Color('686f99'))
-			i.add_theme_color_override('font_pressed_color', Color('686f99'))
-			i.add_theme_color_override('font_hover_color', Color('686f99'))
+			i.add_theme_color_override('font_color', Color('ff5277'))
+			i.add_theme_color_override('font_pressed_color', Color('ff5277'))
+			i.add_theme_color_override('font_hover_color', Color('ff5277'))
+			i.add_theme_color_override('icon_normal_color', Color('ff5277'))
+			i.add_theme_color_override('icon_pressed_color', Color('ff5277'))
+			i.add_theme_color_override('icon_hover_color', Color('ff5277'))
+			if i == $ChooseOptions/Play:
+				$ChooseOptions/Play.icon.region.position.y = 0
+	
+	$ChooseOptions/Play.add_theme_color_override('icon_normal_color', Color('ffffff'))
+	$ChooseOptions/Play.add_theme_color_override('icon_pressed_color', Color('ffffff'))
+	$ChooseOptions/Play.add_theme_color_override('icon_hover_color', Color('ffffff'))

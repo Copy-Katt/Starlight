@@ -1,8 +1,8 @@
 <h1 align="center">
-    <img src="Art/ReadMe/Logo.png" alt="Space Collector">
+    <img src="Art/ReadMe/Logo.png" alt="Starlight">
 </h1>
 
-This is the repository for Space Collector, a classic plataformer with a pixel art style and a space theme.
+This is the repository for Starlight, a classic plataformer with a pixel art style and a space theme.
 
 ---
 

@@ -9,6 +9,9 @@ var Tiles : TileMap
 var oxygen_amount := 24.0
 var oxygen_mult := 1.0
 
+var limit_left := -10000000
+var limit_right := 10000000
+
 func _ready():
 	# Set Game On Global
 	Global.Game = self
@@ -21,8 +24,8 @@ func _ready():
 	var tile_bounds = Tiles.get_used_rect()
 	
 	# Camera Startup
-	Camera.limit_left = tile_bounds.position.x*16
-	Camera.limit_right = (tile_bounds.position.x+tile_bounds.size.x)*16
+	limit_left = tile_bounds.position.x*16
+	limit_right = (tile_bounds.position.x+tile_bounds.size.x)*16
 	
 	# Set Limiting Barriers
 	$Barriers/Left.position.x = Camera.limit_left
@@ -51,9 +54,18 @@ func _process(_delta):
 	
 	# Camera Positioning
 	Camera.position = Player.position+(Player.velocity/10)
+	Camera.rotation = Player.rotation
 	
 	# Death By Void
 	if Player.position.y > 256: Player.death()
+	if Player.rotation != 0: 
+		Camera.limit_bottom = 10000000
+		Camera.limit_left = -10000000
+		Camera.limit_right = 10000000
+	else:
+		Camera.limit_bottom = 240
+		Camera.limit_left = limit_left
+		Camera.limit_right = limit_right
 	
 func load_level(_level_name):
 	if Global.start_pos != Vector2.ZERO:
