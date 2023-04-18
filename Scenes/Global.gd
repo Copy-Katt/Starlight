@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+@export var spikr_alt_mat : ShaderMaterial
+
 @onready var Sound := $SCSoundManager
 var Game : Node
 
@@ -82,13 +84,6 @@ func _ready():
 	randomize()
 	play_music('EndlessVoid')
 	DisplayServer.window_set_title("♦ Starlight ♦")
-	for i in 3:
-		var _tex = AtlasTexture.new()
-		_tex.atlas = cursor.get_image()
-		_tex.region = Rect2(0, i*6, 9, 6)
-		
-		var tex = ImageTexture.create_from_image(_tex.get_image())
-		Input.set_custom_mouse_cursor(tex, i as Input.CursorShape, Vector2(4,1))
 	await get_tree().process_frame
 	DisplayServer.window_set_position((DisplayServer.screen_get_size()-DisplayServer.window_get_size())/2)
 	

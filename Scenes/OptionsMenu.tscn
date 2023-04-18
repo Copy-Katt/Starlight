@@ -9,9 +9,9 @@
 [ext_resource type="FontFile" uid="uid://bcjvcavk6kkgm" path="res://Assets/Fonts/PixelOperatorHB.ttf" id="6_rw2m2"]
 [ext_resource type="Texture2D" uid="uid://dhpopjk0kmtqh" path="res://Assets/Images/Menus/Options/TabletScreen.png" id="8_718yo"]
 [ext_resource type="Texture2D" uid="uid://cgmmislc3tyxk" path="res://Assets/Images/Menus/Options/CategoryIcons.png" id="8_m5lby"]
+[ext_resource type="Texture2D" uid="uid://wb6pa7664in1" path="res://Assets/Images/Menus/Options/TabletPalettes.png" id="8_pveyj"]
 [ext_resource type="FontFile" uid="uid://btmbcaberjtcd" path="res://Assets/Fonts/Sevastopol-Interface.ttf" id="8_wteru"]
 [ext_resource type="Shader" path="res://Assets/Shaders/TabletColorFilter.gdshader" id="10_5n7mu"]
-[ext_resource type="Texture2D" uid="uid://wb6pa7664in1" path="res://Assets/Images/Menus/Options/TabletPalettes.png" id="11_8e0pa"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sltxr"]
 shader = ExtResource("4_xmujq")
@@ -20,8 +20,8 @@ shader_parameter/strengthY = -0.025
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c2klr"]
 shader = ExtResource("10_5n7mu")
-shader_parameter/cur_palette = 0
-shader_parameter/palettes = ExtResource("11_8e0pa")
+shader_parameter/palette_offset = 0.0
+shader_parameter/palettes = ExtResource("8_pveyj")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wrn34"]
 content_margin_left = 16.0
@@ -189,6 +189,7 @@ offset_bottom = 184.0
 mouse_filter = 2
 
 [node name="Screen" type="TextureRect" parent="Screen"]
+visible = false
 layout_mode = 0
 offset_right = 328.0
 offset_bottom = 184.0

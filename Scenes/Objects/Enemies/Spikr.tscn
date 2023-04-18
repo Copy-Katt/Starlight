@@ -6,7 +6,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r58gw"]
 shader = ExtResource("2_mnmbq")
-shader_parameter/invert_direction = false
+shader_parameter/invert = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vcd6o"]
 atlas = ExtResource("1_c4cwb")

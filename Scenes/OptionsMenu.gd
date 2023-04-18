@@ -9,7 +9,7 @@ var option_types := {
 var cur_category := 0
 
 func _ready():
-	$Screen/ColorFilter.material.set_shader_parameter('cur_palette', Options.options.customization.tablet_color_scheme)
+	reload_tablet()
 	load_page()
 	
 func anim_load_page(cat):
@@ -79,4 +79,4 @@ func _on_reload_pressed():
 	Options.reload()
 	
 func reload_tablet():
-	$Screen/ColorFilter.material.set_shader_parameter('cur_palette', Options.options.customization.tablet_color_scheme)
+	$Screen/ColorFilter.material.set_shader_parameter('palette_offset', Options.options.customization.tablet_color_scheme/4.0)

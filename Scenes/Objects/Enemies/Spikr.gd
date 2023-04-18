@@ -1,9 +1,9 @@
 extends Node2D
 
+
 func _ready():
 	if (global_position.x+global_position.y-16)/32.0 == floor((global_position.x+global_position.y-16)/32.0):
-		$Spikes.material = $Spikes.material.duplicate()
-		$Spikes.material.set_shader_parameter('invert_direction', true)
+		$Spikes.material = Global.spikr_alt_mat
 
 func _process(_delta):
 	$Eye/Sprite.rotation = -$Eye.rotation

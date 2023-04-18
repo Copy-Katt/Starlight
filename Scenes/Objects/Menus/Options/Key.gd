@@ -26,6 +26,5 @@ func _input(event):
 		option_value = val
 		selecting_bind = 0
 
-
 func _on_key_pressed(id):
 	selecting_bind = id

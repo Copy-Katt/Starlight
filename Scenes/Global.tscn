@@ -1,10 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://du7h47g4kqbxm"]
+[gd_scene load_steps=10 format=3 uid="uid://du7h47g4kqbxm"]
 
 [ext_resource type="AudioStream" uid="uid://cb4lxotg1fe4" path="res://Assets/Music/EndlessVoid.wav" id="1_5iy7v"]
 [ext_resource type="Script" path="res://Scenes/Global.gd" id="1_p465t"]
+[ext_resource type="Shader" path="res://Assets/Shaders/Spikr_Spikes.gdshader" id="2_flpyt"]
 [ext_resource type="Script" path="res://Scripts/Nodes/SCSoundManager.gd" id="2_h5wju"]
 [ext_resource type="FontFile" uid="uid://lfyxkqn7db31" path="res://Assets/Fonts/small_5x3.ttf" id="3_50tm8"]
 [ext_resource type="Shader" path="res://Assets/Shaders/ScreenEffects.gdshader" id="5_6kg4t"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ip73o"]
+shader = ExtResource("2_flpyt")
+shader_parameter/invert = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qnigr"]
 shader = ExtResource("5_6kg4t")
@@ -25,6 +30,7 @@ shadow_offset = Vector2(0, 1)
 [node name="Global" type="CanvasLayer"]
 layer = 128
 script = ExtResource("1_p465t")
+spikr_alt_mat = SubResource("ShaderMaterial_ip73o")
 
 [node name="SCSoundManager" type="Node" parent="."]
 script = ExtResource("2_h5wju")
@@ -45,6 +51,3 @@ offset_right = 30.0
 offset_bottom = 239.0
 text = "0 FPS"
 label_settings = SubResource("LabelSettings_j182v")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(109, 78)
