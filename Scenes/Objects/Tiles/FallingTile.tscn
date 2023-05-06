@@ -1,6 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://jh1xtttdlj7y"]
+[gd_scene load_steps=12 format=3]
 
-[ext_resource type="Texture2D" uid="uid://bf62whfy1x5lv" path="res://Assets/Images/LevelItems/Objects.png" id="1_8pnuu"]
+[ext_resource type="Texture2D" uid="uid://bf62whfy1x5lv" path="res://Assets/Images/Objects/Objects.png" id="1_8pnuu"]
 [ext_resource type="Script" path="res://Scenes/Objects/Tiles/FallingTile.gd" id="1_g3yx7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lwbrx"]

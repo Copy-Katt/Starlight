@@ -6,7 +6,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _physics_process(delta):
 	if not is_on_floor():
-		velocity.y += gravity * Global.level_data.gravity_mult * delta
+		velocity.y += gravity * Global.Game.level_data.gravity_mult * delta
 		$Sprite.rotation = 0
 	else:
 		$Sprite.rotation = get_floor_normal().angle()+PI/2

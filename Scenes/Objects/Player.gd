@@ -79,14 +79,14 @@ func _physics_process(_delta):
 			
 	# Add the gravity.
 		if not is_on_floor():
-			down_gravity_velocity.y += gravity * Global.level_data.gravity_mult * 0.016
-			if Input.is_action_pressed("walk_down"):
+			down_gravity_velocity.y += gravity * Global.Game.level_data.gravity_mult * 0.016
+			if Input.is_action_pressed("down"):
 				down_gravity_velocity.y += 5
 		
 		old_invert_dir = invert_dir
 		
 	# Handle Walking
-		var direction = Input.get_axis("walk_left", "walk_right")
+		var direction = Input.get_axis("left", "right")
 		if direction:
 			invert_dir = old_invert_dir
 			down_gravity_velocity.x = move_toward(down_gravity_velocity.x, direction * speed * _run_speed_mult * invert_dir, speed/10)
@@ -108,7 +108,7 @@ func _process(_delta):
 		var _run_speed_mult = 1.0
 		if Input.is_action_pressed("run"):
 			_run_speed_mult = run_speed_mult
-		var direction = Input.get_axis("walk_left", "walk_right")
+		var direction = Input.get_axis("left", "right")
 		
 		if direction*invert_dir:
 			if direction*invert_dir < 0:
@@ -148,4 +148,7 @@ func death():
 
 func _on_anim_animation_finished(anim_name):
 	if anim_name == 'death':
-		Global.reset_scene()
+		if Global.lifes < 1:
+			Global.switch_scene("res://Scenes/GameOver.tscn")
+		else:
+			Global.reset_scene()

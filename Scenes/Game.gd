@@ -5,9 +5,19 @@ extends Node2D
 @onready var Camera = $Camera
 var Tiles : TileMap
 
+# Level Information
+var level_data : Node2D
+
 # O2 Variables
-var oxygen_amount := 24.0
+var oxygen_amount := 24.0:
+	set(value):
+		oxygen_amount = value
+		if oxygen_amount > 24: oxygen_amount = 24
+		elif oxygen_amount < 0: Player.death()
+		$UI/O2Bar.value = oxygen_amount
 var oxygen_mult := 1.0
+
+# Camera Limits
 
 var limit_left := -10000000
 var limit_right := 10000000
@@ -18,7 +28,7 @@ func _ready():
 	
 	Camera.make_current()
 	
-	Global.load_level('Level1')
+	load_level('Level1')
 	
 	# Getting Bounds Of TileMap
 	var tile_bounds = Tiles.get_used_rect()
@@ -36,13 +46,8 @@ func _ready():
 	Camera.position_smoothing_enabled = true
 
 func _process(_delta):
-	# O2 Logic
-	if oxygen_amount > 24: oxygen_amount = 24
-	elif oxygen_amount < 0: Player.death()
-		
 	if Player.loses_o2: 
 		oxygen_amount -= _delta/2*oxygen_mult
-		$UI/O2Bar.value = oxygen_amount
 	
 	# UI Texts
 #	if str(Global.gem_amount) != $UI/GemCount.text:
@@ -68,10 +73,11 @@ func _process(_delta):
 		Camera.limit_right = limit_right
 	
 func load_level(_level_name):
+	level_data = load("res://Assets/Data/Levels/"+_level_name+".tscn").instantiate()
 	if Global.start_pos != Vector2.ZERO:
 		Player.global_position = Global.start_pos
 	else:
-		Player.global_position = Global.level_data.start_pos
-	add_child(Global.level_data)
+		Player.global_position = level_data.start_pos
+	add_child(level_data)
 	Tiles = $Level/Tiles
 	

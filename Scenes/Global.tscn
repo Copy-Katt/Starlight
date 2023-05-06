@@ -1,6 +1,5 @@
-[gd_scene load_steps=10 format=3 uid="uid://du7h47g4kqbxm"]
+[gd_scene load_steps=9 format=3 uid="uid://du7h47g4kqbxm"]
 
-[ext_resource type="AudioStream" uid="uid://cb4lxotg1fe4" path="res://Assets/Music/EndlessVoid.wav" id="1_5iy7v"]
 [ext_resource type="Script" path="res://Scenes/Global.gd" id="1_p465t"]
 [ext_resource type="Shader" path="res://Assets/Shaders/Spikr_Spikes.gdshader" id="2_flpyt"]
 [ext_resource type="Script" path="res://Scripts/Nodes/SCSoundManager.gd" id="2_h5wju"]
@@ -36,7 +35,6 @@ spikr_alt_mat = SubResource("ShaderMaterial_ip73o")
 script = ExtResource("2_h5wju")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_5iy7v")
 
 [node name="ScreenEffects" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_qnigr")

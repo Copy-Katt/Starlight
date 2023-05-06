@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://b34bt8jpcn84f"]
+[gd_scene load_steps=9 format=3]
 
 [ext_resource type="PackedScene" uid="uid://tsq8m664h0q4" path="res://Scenes/Objects/Nodes/GravityArea2D.tscn" id="1_a1ogo"]
-[ext_resource type="Texture2D" uid="uid://cylc53mcvoj04" path="res://Assets/Images/LevelItems/Asteroid_TEX.png" id="1_djobs"]
+[ext_resource type="Texture2D" uid="uid://cylc53mcvoj04" path="res://Assets/Images/Objects/Asteroid_TEX.png" id="1_djobs"]
 [ext_resource type="Script" path="res://Scenes/Objects/Tiles/Asteroid.gd" id="1_ttqbn"]
 
 [sub_resource type="Shader" id="Shader_xelrc"]

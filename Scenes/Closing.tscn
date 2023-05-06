@@ -8,11 +8,9 @@ shader = ExtResource("2_3idan")
 shader_parameter/value = 0.0
 
 [node name="Closing" type="Node2D"]
-rotation = -3.07617
 script = ExtResource("1_eyebs")
 
 [node name="Anim" type="ColorRect" parent="."]
-visible = false
 material = SubResource("ShaderMaterial_x1def")
 offset_right = 416.0
 offset_bottom = 240.0

@@ -78,20 +78,25 @@
 	"input": {
 		"name": "Input",
 		"settings": {
-			"walk_left": {
-				"name": "Walk Left",
+			"left": {
+				"name": "Left",
 				"type": "key",
 				"def_value": [65, 4194319]
 			},
-			"walk_right": {
-				"name": "Walk Right",
+			"right": {
+				"name": "Right",
 				"type": "key",
 				"def_value": [68, 4194321]
 			},
-			"walk_down": {
-				"name": "Drop / Walk Down",
+			"down": {
+				"name": "Down",
 				"type": "key",
 				"def_value": [83, 4194322]
+			},
+			"up": {
+				"name": "Up",
+				"type": "key",
+				"def_value": [87, 4194320]
 			},
 			"jump": {
 				"name": "Jump",
@@ -102,6 +107,11 @@
 				"name": "Run",
 				"type": "key",
 				"def_value": [4194325, 90]
+			},
+			"start": {
+				"name": "Pause",
+				"type": "key",
+				"def_value": [4194305, 4194309]
 			}
 		}
 	},

@@ -51,7 +51,8 @@ offset_left = 89.0
 offset_top = 16.0
 offset_right = 189.0
 offset_bottom = 38.0
-text = "Dpad UP"
+disabled = true
+text = "Invalid"
 icon = SubResource("AtlasTexture_0ou0b")
 
 [connection signal="pressed" from="Key1" to="." method="_on_key_pressed" binds= [1]]

@@ -1,8 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://cia35bpfdgice"]
+[gd_scene load_steps=15 format=3]
 
 [ext_resource type="Script" path="res://Scenes/Objects/Collectables/Scripts/Collectable.gd" id="1_2o12h"]
 [ext_resource type="Shader" path="res://Assets/Shaders/Checkpoint.gdshader" id="2_nlmie"]
-[ext_resource type="Texture2D" uid="uid://bf62whfy1x5lv" path="res://Assets/Images/LevelItems/Objects.png" id="3_if3f0"]
+[ext_resource type="Texture2D" uid="uid://bf62whfy1x5lv" path="res://Assets/Images/Objects/Objects.png" id="3_if3f0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_thfcq"]
 shader = ExtResource("2_nlmie")

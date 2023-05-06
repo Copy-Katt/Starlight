@@ -4,7 +4,7 @@
 	"scale": "easy :)",
 	"key": "E",
 	"introBars": 0,
-	"loopBars": 8,
+	"loopBars": 12,
 	"beatsPerBar": 8,
 	"ticksPerBeat": 4,
 	"beatsPerMinute": 160,
@@ -16,7 +16,7 @@
 			"instruments": [
 				{
 					"type": "FM",
-					"volume": 0,
+					"volume": -20,
 					"eqFilter": [],
 					"preset": 192,
 					"effects": [
@@ -79,8 +79,7 @@
 					"notes": [
 						{
 							"pitches": [
-								48,
-								69
+								48
 							],
 							"points": [
 								{
@@ -98,8 +97,7 @@
 						},
 						{
 							"pitches": [
-								43,
-								64
+								43
 							],
 							"points": [
 								{
@@ -116,8 +114,7 @@
 						},
 						{
 							"pitches": [
-								45,
-								67
+								45
 							],
 							"points": [
 								{
@@ -134,8 +131,7 @@
 						},
 						{
 							"pitches": [
-								48,
-								69
+								48
 							],
 							"points": [
 								{
@@ -152,7 +148,6 @@
 						},
 						{
 							"pitches": [
-								64,
 								43
 							],
 							"points": [
@@ -170,8 +165,7 @@
 						},
 						{
 							"pitches": [
-								45,
-								67
+								45
 							],
 							"points": [
 								{
@@ -192,8 +186,7 @@
 					"notes": [
 						{
 							"pitches": [
-								43,
-								64
+								43
 							],
 							"points": [
 								{
@@ -211,7 +204,6 @@
 						},
 						{
 							"pitches": [
-								67,
 								45
 							],
 							"points": [
@@ -229,7 +221,6 @@
 						},
 						{
 							"pitches": [
-								60,
 								38
 							],
 							"points": [
@@ -247,7 +238,6 @@
 						},
 						{
 							"pitches": [
-								64,
 								43
 							],
 							"points": [
@@ -265,8 +255,114 @@
 						},
 						{
 							"pitches": [
-								67,
 								45
+							],
+							"points": [
+								{
+									"tick": 22,
+									"pitchBend": 0,
+									"volume": 100
+								},
+								{
+									"tick": 24,
+									"pitchBend": 0,
+									"volume": 100
+								}
+							]
+						},
+						{
+							"pitches": [
+								40
+							],
+							"points": [
+								{
+									"tick": 26,
+									"pitchBend": 0,
+									"volume": 100
+								},
+								{
+									"tick": 28,
+									"pitchBend": 0,
+									"volume": 100
+								}
+							]
+						}
+					]
+				},
+				{
+					"notes": [
+						{
+							"pitches": [
+								43
+							],
+							"points": [
+								{
+									"tick": 0,
+									"pitchBend": 0,
+									"volume": 100
+								},
+								{
+									"tick": 2,
+									"pitchBend": 0,
+									"volume": 100
+								}
+							],
+							"continuesLastPattern": false
+						},
+						{
+							"pitches": [
+								45
+							],
+							"points": [
+								{
+									"tick": 6,
+									"pitchBend": 0,
+									"volume": 100
+								},
+								{
+									"tick": 8,
+									"pitchBend": 0,
+									"volume": 100
+								}
+							]
+						},
+						{
+							"pitches": [
+								40
+							],
+							"points": [
+								{
+									"tick": 10,
+									"pitchBend": 0,
+									"volume": 100
+								},
+								{
+									"tick": 12,
+									"pitchBend": 0,
+									"volume": 100
+								}
+							]
+						},
+						{
+							"pitches": [
+								45
+							],
+							"points": [
+								{
+									"tick": 16,
+									"pitchBend": 0,
+									"volume": 100
+								},
+								{
+									"tick": 18,
+									"pitchBend": 0,
+									"volume": 100
+								}
+							]
+						},
+						{
+							"pitches": [
+								48
 							],
 							"points": [
 								{
@@ -305,8 +401,7 @@
 					"notes": [
 						{
 							"pitches": [
-								43,
-								64
+								43
 							],
 							"points": [
 								{
@@ -324,53 +419,67 @@
 						},
 						{
 							"pitches": [
-								45,
-								67
+								45
 							],
 							"points": [
+								{
+									"tick": 4,
+									"pitchBend": 0,
+									"volume": 100
+								},
 								{
 									"tick": 6,
 									"pitchBend": 0,
 									"volume": 100
-								},
+								}
+							]
+						},
+						{
+							"pitches": [
+								48
+							],
+							"points": [
 								{
 									"tick": 8,
 									"pitchBend": 0,
 									"volume": 100
-								}
-							]
-						},
-						{
-							"pitches": [
-								40,
-								62
-							],
-							"points": [
+								},
 								{
 									"tick": 10,
 									"pitchBend": 0,
 									"volume": 100
-								},
+								}
+							]
+						},
+						{
+							"pitches": [
+								45
+							],
+							"points": [
 								{
 									"tick": 12,
 									"pitchBend": 0,
 									"volume": 100
+								},
+								{
+									"tick": 14,
+									"pitchBend": 0,
+									"volume": 100
 								}
 							]
 						},
 						{
 							"pitches": [
-								45,
-								67
+								50
 							],
 							"points": [
 								{
-									"tick": 16,
+									"tick": 14,
 									"pitchBend": 0,
 									"volume": 100
 								},
 								{
-									"tick": 18,
+									"tick": 16,
 									"pitchBend": 0,
 									"volume": 100
 								}
@@ -378,8 +487,24 @@
 						},
 						{
 							"pitches": [
-								48,
-								69
+								52
+							],
+							"points": [
+								{
+									"tick": 18,
+									"pitchBend": 0,
+									"volume": 100
+								},
+								{
+									"tick": 20,
+									"pitchBend": 0,
+									"volume": 100
+								}
+							]
+						},
+						{
+							"pitches": [
+								50
 							],
 							"points": [
 								{
@@ -396,8 +521,7 @@
 						},
 						{
 							"pitches": [
-								40,
-								60
+								52
 							],
 							"points": [
 								{
@@ -407,6 +531,198 @@
 								},
 								{
 									"tick": 28,
+									"pitchBend": 0,
+									"volume": 100
+								}
+							]
+						},
+						{
+							"pitches": [
+								57
+							],
+							"points": [
+								{
+									"tick": 30,
+									"pitchBend": 0,
+									"volume": 100
+								},
+								{
+									"tick": 32,
+									"pitchBend": 0,
+									"volume": 100
+								}
+							]
+						}
+					]
+				},
+				{
+					"notes": [
+						{
+							"pitches": [
+								43
+							],
+							"points": [
+								{
+									"tick": 0,
+									"pitchBend": 0,
+									"volume": 100
+								},
+								{
+									"tick": 2,
+									"pitchBend": 0,
+									"volume": 100
+								}
+							],
+							"continuesLastPattern": false
+						},
+						{
+							"pitches": [
+								48
+							],
+							"points": [
+								{
+									"tick": 4,
+									"pitchBend": 0,
+									"volume": 100
+								},
+								{
+									"tick": 6,
+									"pitchBend": 0,
+									"volume": 100
+								}
+							]
+						},
+						{
+							"pitches": [
+								43
+							],
+							"points": [
+								{
+									"tick": 8,
+									"pitchBend": 0,
+									"volume": 100
+								},
+								{
+									"tick": 10,
+									"pitchBend": 0,
+									"volume": 100
+								}
+							]
+						},
+						{
+							"pitches": [
+								50
+							],
+							"points": [
+								{
+									"tick": 12,
+									"pitchBend": 0,
+									"volume": 100
+								},
+								{
+									"tick": 14,
+									"pitchBend": 0,
+									"volume": 100
+								}
+							]
+						},
+						{
+							"pitches": [
+								45
+							],
+							"points": [
+								{
+									"tick": 18,
+									"pitchBend": 0,
+									"volume": 100
+								},
+								{
+									"tick": 20,
+									"pitchBend": 0,
+									"volume": 100
+								}
+							]
+						},
+						{
+							"pitches": [
+								48
+							],
+							"points": [
+								{
+									"tick": 20,
+									"pitchBend": 0,
+									"volume": 100
+								},
+								{
+									"tick": 22,
+									"pitchBend": 0,
+									"volume": 100
+								}
+							]
+						},
+						{
+							"pitches": [
+								50
+							],
+							"points": [
+								{
+									"tick": 22,
+									"pitchBend": 0,
+									"volume": 100
+								},
+								{
+									"tick": 24,
+									"pitchBend": 0,
+									"volume": 100
+								}
+							]
+						},
+						{
+							"pitches": [
+								48
+							],
+							"points": [
+								{
+									"tick": 24,
+									"pitchBend": 0,
+									"volume": 100
+								},
+								{
+									"tick": 26,
+									"pitchBend": 0,
+									"volume": 100
+								}
+							]
+						},
+						{
+							"pitches": [
+								52
+							],
+							"points": [
+								{
+									"tick": 26,
+									"pitchBend": 0,
+									"volume": 100
+								},
+								{
+									"tick": 28,
+									"pitchBend": 0,
+									"volume": 100
+								}
+							]
+						},
+						{
+							"pitches": [
+								43
+							],
+							"points": [
+								{
+									"tick": 28,
+									"pitchBend": 0,
+									"volume": 100
+								},
+								{
+									"tick": 30,
 									"pitchBend": 0,
 									"volume": 100
 								}
@@ -422,23 +738,21 @@
 				},
 				{
 					"notes": []
-				},
-				{
-					"notes": []
-				},
-				{
-					"notes": []
 				}
 			],
 			"sequence": [
+				0,
+				0,
 				1,
 				2,
 				1,
 				3,
 				1,
-				2,
+				4,
 				1,
-				3
+				5,
+				0,
+				0
 			],
 			"octaveScrollBar": 3
 		},
@@ -447,7 +761,7 @@
 			"instruments": [
 				{
 					"type": "FM",
-					"volume": 0,
+					"volume": -20,
 					"eqFilter": [
 						{
 							"type": "low-pass",
@@ -507,29 +821,12 @@
 									"volume": 100
 								},
 								{
-									"tick": 2,
+									"tick": 4,
 									"pitchBend": 0,
 									"volume": 100
 								}
 							],
 							"continuesLastPattern": false
-						},
-						{
-							"pitches": [
-								43
-							],
-							"points": [
-								{
-									"tick": 4,
-									"pitchBend": 0,
-									"volume": 100
-								},
-								{
-									"tick": 6,
-									"pitchBend": 0,
-									"volume": 100
-								}
-							]
 						},
 						{
 							"pitches": [
@@ -542,24 +839,7 @@
 									"volume": 100
 								},
 								{
-									"tick": 10,
-									"pitchBend": 0,
-									"volume": 100
-								}
-							]
-						},
-						{
-							"pitches": [
-								45
-							],
-							"points": [
-								{
 									"tick": 12,
-									"pitchBend": 0,
-									"volume": 100
-								},
-								{
-									"tick": 14,
 									"pitchBend": 0,
 									"volume": 100
 								}
@@ -571,29 +851,12 @@
 							],
 							"points": [
 								{
+									"tick": 12,
+									"pitchBend": 0,
+									"volume": 100
+								},
+								{
 									"tick": 16,
-									"pitchBend": 0,
-									"volume": 100
-								},
-								{
-									"tick": 18,
-									"pitchBend": 0,
-									"volume": 100
-								}
-							]
-						},
-						{
-							"pitches": [
-								43
-							],
-							"points": [
-								{
-									"tick": 20,
-									"pitchBend": 0,
-									"volume": 100
-								},
-								{
-									"tick": 22,
 									"pitchBend": 0,
 									"volume": 100
 								}
@@ -605,12 +868,12 @@
 							],
 							"points": [
 								{
-									"tick": 24,
+									"tick": 16,
 									"pitchBend": 0,
 									"volume": 100
 								},
 								{
-									"tick": 26,
+									"tick": 20,
 									"pitchBend": 0,
 									"volume": 100
 								}
@@ -618,16 +881,16 @@
 						},
 						{
 							"pitches": [
-								45
+								43
 							],
 							"points": [
 								{
-									"tick": 28,
+									"tick": 24,
 									"pitchBend": 0,
 									"volume": 100
 								},
 								{
-									"tick": 30,
+									"tick": 28,
 									"pitchBend": 0,
 									"volume": 100
 								}
@@ -648,29 +911,12 @@
 									"volume": 100
 								},
 								{
-									"tick": 2,
+									"tick": 4,
 									"pitchBend": 0,
 									"volume": 100
 								}
 							],
 							"continuesLastPattern": false
-						},
-						{
-							"pitches": [
-								40
-							],
-							"points": [
-								{
-									"tick": 4,
-									"pitchBend": 0,
-									"volume": 100
-								},
-								{
-									"tick": 6,
-									"pitchBend": 0,
-									"volume": 100
-								}
-							]
 						},
 						{
 							"pitches": [
@@ -683,24 +929,7 @@
 									"volume": 100
 								},
 								{
-									"tick": 10,
-									"pitchBend": 0,
-									"volume": 100
-								}
-							]
-						},
-						{
-							"pitches": [
-								36
-							],
-							"points": [
-								{
 									"tick": 12,
-									"pitchBend": 0,
-									"volume": 100
-								},
-								{
-									"tick": 14,
 									"pitchBend": 0,
 									"volume": 100
 								}
@@ -717,24 +946,7 @@
 									"volume": 100
 								},
 								{
-									"tick": 18,
-									"pitchBend": 0,
-									"volume": 100
-								}
-							]
-						},
-						{
-							"pitches": [
-								43
-							],
-							"points": [
-								{
 									"tick": 20,
-									"pitchBend": 0,
-									"volume": 100
-								},
-								{
-									"tick": 22,
 									"pitchBend": 0,
 									"volume": 100
 								}
@@ -751,24 +963,7 @@
 									"volume": 100
 								},
 								{
-									"tick": 26,
-									"pitchBend": 0,
-									"volume": 100
-								}
-							]
-						},
-						{
-							"pitches": [
-								36
-							],
-							"points": [
-								{
 									"tick": 28,
-									"pitchBend": 0,
-									"volume": 100
-								},
-								{
-									"tick": 30,
 									"pitchBend": 0,
 									"volume": 100
 								}
@@ -789,7 +984,7 @@
 									"volume": 100
 								},
 								{
-									"tick": 2,
+									"tick": 4,
 									"pitchBend": 0,
 									"volume": 100
 								}
@@ -802,29 +997,12 @@
 							],
 							"points": [
 								{
-									"tick": 4,
-									"pitchBend": 0,
-									"volume": 100
-								},
-								{
-									"tick": 6,
-									"pitchBend": 0,
-									"volume": 100
-								}
-							]
-						},
-						{
-							"pitches": [
-								33
-							],
-							"points": [
-								{
 									"tick": 8,
 									"pitchBend": 0,
 									"volume": 100
 								},
 								{
-									"tick": 10,
+									"tick": 12,
 									"pitchBend": 0,
 									"volume": 100
 								}
@@ -841,7 +1019,7 @@
 									"volume": 100
 								},
 								{
-									"tick": 14,
+									"tick": 16,
 									"pitchBend": 0,
 									"volume": 100
 								}
@@ -858,7 +1036,7 @@
 									"volume": 100
 								},
 								{
-									"tick": 18,
+									"tick": 20,
 									"pitchBend": 0,
 									"volume": 100
 								}
@@ -870,29 +1048,12 @@
 							],
 							"points": [
 								{
-									"tick": 20,
-									"pitchBend": 0,
-									"volume": 100
-								},
-								{
-									"tick": 22,
-									"pitchBend": 0,
-									"volume": 100
-								}
-							]
-						},
-						{
-							"pitches": [
-								36
-							],
-							"points": [
-								{
 									"tick": 24,
 									"pitchBend": 0,
 									"volume": 100
 								},
 								{
-									"tick": 26,
+									"tick": 28,
 									"pitchBend": 0,
 									"volume": 100
 								}
@@ -904,12 +1065,12 @@
 							],
 							"points": [
 								{
-									"tick": 26,
+									"tick": 28,
 									"pitchBend": 0,
 									"volume": 100
 								},
 								{
-									"tick": 28,
+									"tick": 32,
 									"pitchBend": 0,
 									"volume": 100
 								}
@@ -941,6 +1102,10 @@
 				1,
 				2,
 				1,
+				3,
+				1,
+				2,
+				1,
 				3
 			],
 			"octaveScrollBar": 2
@@ -949,69 +1114,78 @@
 			"type": "pitch",
 			"instruments": [
 				{
-					"type": "spectrum",
+					"type": "harmonics",
 					"volume": -20,
 					"eqFilter": [
 						{
 							"type": "low-pass",
-							"cutoffHz": 594.6,
+							"cutoffHz": 2378.41,
 							"linearGain": 11.3137
 						},
 						{
 							"type": "peak",
-							"cutoffHz": 176.78,
-							"linearGain": 11.3137
+							"cutoffHz": 594.6,
+							"linearGain": 5.6569
 						},
 						{
-							"type": "high-pass",
-							"cutoffHz": 297.3,
+							"type": "peak",
+							"cutoffHz": 1681.79,
+							"linearGain": 0.0884
+						},
+						{
+							"type": "peak",
+							"cutoffHz": 707.11,
+							"linearGain": 0.0884
+						},
+						{
+							"type": "peak",
+							"cutoffHz": 840.9,
 							"linearGain": 11.3137
 						}
 					],
+					"preset": 642,
 					"effects": [
+						"vibrato",
+						"chorus",
 						"reverb"
 					],
-					"reverb": 100,
-					"fadeInSeconds": 0.075,
-					"fadeOutTicks": -3,
-					"spectrum": [
-						100,
-						0,
-						0,
-						0,
-						0,
-						0,
-						0,
+					"vibrato": "shaky",
+					"chorus": 100,
+					"reverb": 67,
+					"fadeInSeconds": 0.0413,
+					"fadeOutTicks": 48,
+					"harmonics": [
 						71,
-						0,
-						0,
-						0,
+						86,
+						100,
+						100,
+						86,
+						86,
 						57,
-						0,
-						0,
-						57,
-						0,
 						43,
-						0,
+						29,
+						29,
+						29,
+						29,
+						29,
+						29,
 						43,
-						0,
-						0,
+						43,
+						43,
+						43,
+						43,
 						29,
-						0,
 						29,
-						0,
+						29,
+						29,
 						14,
 						14,
 						14,
-						0,
-						0
+						14,
+						14
 					],
-					"envelopes": [
-						{
-							"target": "none",
-							"envelope": "swell 1"
-						}
-					]
+					"unison": "none",
+					"envelopes": []
 				}
 			],
 			"patterns": [
@@ -1097,7 +1271,7 @@
 						{
 							"pitches": [
 								19,
-								24
+								28
 							],
 							"points": [
 								{
@@ -1134,7 +1308,7 @@
 						{
 							"pitches": [
 								19,
-								24
+								28
 							],
 							"points": [
 								{
@@ -1161,25 +1335,7 @@
 									"volume": 100
 								},
 								{
-									"tick": 26,
-									"pitchBend": 0,
-									"volume": 100
-								}
-							]
-						},
-						{
-							"pitches": [
-								16,
-								26
-							],
-							"points": [
-								{
-									"tick": 26,
-									"pitchBend": 0,
-									"volume": 100
-								},
-								{
-									"tick": 28,
+									"tick": 30,
 									"pitchBend": 0,
 									"volume": 100
 								}
@@ -1207,6 +1363,10 @@
 				}
 			],
 			"sequence": [
+				1,
+				2,
+				1,
+				2,
 				1,
 				2,
 				1,
@@ -1223,52 +1383,45 @@
 			"instruments": [
 				{
 					"type": "Picked String",
-					"volume": 0,
+					"volume": -20,
 					"eqFilter": [
 						{
-							"type": "high-pass",
-							"cutoffHz": 148.65,
+							"type": "low-pass",
+							"cutoffHz": 1681.79,
 							"linearGain": 0.7071
 						},
 						{
+							"type": "high-pass",
+							"cutoffHz": 148.65,
+							"linearGain": 0.5
+						},
+						{
 							"type": "peak",
-							"cutoffHz": 2000,
-							"linearGain": 2.8284
+							"cutoffHz": 3363.59,
+							"linearGain": 1.4142
 						}
 					],
-					"preset": 128,
+					"preset": 129,
 					"effects": [
-						"note filter",
 						"reverb"
 					],
-					"noteFilter": [
-						{
-							"type": "low-pass",
-							"cutoffHz": 8000,
-							"linearGain": 0.125
-						}
-					],
-					"reverb": 67,
+					"reverb": 33,
 					"fadeInSeconds": 0,
-					"fadeOutTicks": 48,
+					"fadeOutTicks": 24,
 					"harmonics": [
 						100,
 						100,
 						86,
 						86,
-						86,
-						71,
 						71,
 						71,
 						0,
-						86,
 						71,
 						71,
 						71,
-						57,
-						57,
 						71,
-						57,
+						71,
+						71,
 						14,
 						57,
 						57,
@@ -1276,19 +1429,18 @@
 						57,
 						57,
 						57,
-						57,
-						57,
 						29,
+						57,
+						57,
+						57,
+						57,
+						57,
+						57,
 						57
 					],
 					"unison": "piano",
-					"stringSustain": 79,
-					"envelopes": [
-						{
-							"target": "noteFilterAllFreqs",
-							"envelope": "note size"
-						}
-					]
+					"stringSustain": 86,
+					"envelopes": []
 				}
 			],
 			"patterns": [
@@ -1318,12 +1470,12 @@
 							],
 							"points": [
 								{
-									"tick": 4,
+									"tick": 6,
 									"pitchBend": 0,
 									"volume": 100
 								},
 								{
-									"tick": 8,
+									"tick": 10,
 									"pitchBend": 0,
 									"volume": 100
 								}
@@ -1335,12 +1487,12 @@
 							],
 							"points": [
 								{
-									"tick": 8,
+									"tick": 12,
 									"pitchBend": 0,
 									"volume": 100
 								},
 								{
-									"tick": 12,
+									"tick": 16,
 									"pitchBend": 0,
 									"volume": 100
 								}
@@ -1352,46 +1504,12 @@
 							],
 							"points": [
 								{
-									"tick": 12,
+									"tick": 18,
 									"pitchBend": 0,
 									"volume": 100
 								},
 								{
-									"tick": 16,
-									"pitchBend": 0,
-									"volume": 100
-								}
-							]
-						},
-						{
-							"pitches": [
-								31
-							],
-							"points": [
-								{
-									"tick": 16,
-									"pitchBend": 0,
-									"volume": 100
-								},
-								{
-									"tick": 20,
-									"pitchBend": 0,
-									"volume": 100
-								}
-							]
-						},
-						{
-							"pitches": [
-								33
-							],
-							"points": [
-								{
-									"tick": 20,
-									"pitchBend": 0,
-									"volume": 100
-								},
-								{
-									"tick": 24,
+									"tick": 22,
 									"pitchBend": 0,
 									"volume": 100
 								}
@@ -1416,7 +1534,7 @@
 						},
 						{
 							"pitches": [
-								36
+								33
 							],
 							"points": [
 								{
@@ -1455,23 +1573,6 @@
 						},
 						{
 							"pitches": [
-								36
-							],
-							"points": [
-								{
-									"tick": 4,
-									"pitchBend": 0,
-									"volume": 100
-								},
-								{
-									"tick": 6,
-									"pitchBend": 0,
-									"volume": 100
-								}
-							]
-						},
-						{
-							"pitches": [
 								40
 							],
 							"points": [
@@ -1489,23 +1590,6 @@
 						},
 						{
 							"pitches": [
-								36
-							],
-							"points": [
-								{
-									"tick": 10,
-									"pitchBend": 0,
-									"volume": 100
-								},
-								{
-									"tick": 12,
-									"pitchBend": 0,
-									"volume": 100
-								}
-							]
-						},
-						{
-							"pitches": [
 								31
 							],
 							"points": [
@@ -1527,29 +1611,12 @@
 							],
 							"points": [
 								{
-									"tick": 16,
+									"tick": 18,
 									"pitchBend": 0,
 									"volume": 100
 								},
 								{
-									"tick": 20,
-									"pitchBend": 0,
-									"volume": 100
-								}
-							]
-						},
-						{
-							"pitches": [
-								31
-							],
-							"points": [
-								{
-									"tick": 20,
-									"pitchBend": 0,
-									"volume": 100
-								},
-								{
-									"tick": 24,
+									"tick": 22,
 									"pitchBend": 0,
 									"volume": 100
 								}
@@ -1621,7 +1688,7 @@
 									"volume": 100
 								},
 								{
-									"tick": 6,
+									"tick": 4,
 									"pitchBend": 0,
 									"volume": 100
 								}
@@ -1651,24 +1718,7 @@
 							],
 							"points": [
 								{
-									"tick": 10,
-									"pitchBend": 0,
-									"volume": 100
-								},
-								{
-									"tick": 14,
-									"pitchBend": 0,
-									"volume": 100
-								}
-							]
-						},
-						{
-							"pitches": [
-								31
-							],
-							"points": [
-								{
-									"tick": 14,
+									"tick": 12,
 									"pitchBend": 0,
 									"volume": 100
 								},
@@ -1681,45 +1731,11 @@
 						},
 						{
 							"pitches": [
-								28
-							],
-							"points": [
-								{
-									"tick": 16,
-									"pitchBend": 0,
-									"volume": 100
-								},
-								{
-									"tick": 18,
-									"pitchBend": 0,
-									"volume": 100
-								}
-							]
-						},
-						{
-							"pitches": [
-								33
-							],
-							"points": [
-								{
-									"tick": 18,
-									"pitchBend": 0,
-									"volume": 100
-								},
-								{
-									"tick": 20,
-									"pitchBend": 0,
-									"volume": 100
-								}
-							]
-						},
-						{
-							"pitches": [
 								31
 							],
 							"points": [
 								{
-									"tick": 20,
+									"tick": 18,
 									"pitchBend": 0,
 									"volume": 100
 								},
@@ -1741,58 +1757,7 @@
 									"volume": 100
 								},
 								{
-									"tick": 24,
-									"pitchBend": 0,
-									"volume": 100
-								}
-							]
-						},
-						{
-							"pitches": [
-								33
-							],
-							"points": [
-								{
-									"tick": 24,
-									"pitchBend": 0,
-									"volume": 100
-								},
-								{
 									"tick": 26,
-									"pitchBend": 0,
-									"volume": 100
-								}
-							]
-						},
-						{
-							"pitches": [
-								40
-							],
-							"points": [
-								{
-									"tick": 26,
-									"pitchBend": 0,
-									"volume": 100
-								},
-								{
-									"tick": 28,
-									"pitchBend": 0,
-									"volume": 100
-								}
-							]
-						},
-						{
-							"pitches": [
-								38
-							],
-							"points": [
-								{
-									"tick": 28,
-									"pitchBend": 0,
-									"volume": 100
-								},
-								{
-									"tick": 30,
 									"pitchBend": 0,
 									"volume": 100
 								}
@@ -1804,7 +1769,7 @@
 							],
 							"points": [
 								{
-									"tick": 30,
+									"tick": 28,
 									"pitchBend": 0,
 									"volume": 100
 								},
@@ -1836,10 +1801,14 @@
 			"sequence": [
 				1,
 				2,
+				3,
+				1,
 				2,
 				3,
 				1,
 				2,
+				3,
+				1,
 				2,
 				3
 			],
@@ -1849,24 +1818,64 @@
 			"type": "drum",
 			"instruments": [
 				{
-					"type": "noise",
+					"type": "spectrum",
 					"volume": -20,
-					"eqFilter": [
+					"eqFilter": [],
+					"preset": 970,
+					"effects": [
+						"chord type",
+						"note filter",
+						"reverb"
+					],
+					"chord": "strum",
+					"noteFilter": [
 						{
 							"type": "low-pass",
-							"cutoffHz": 16000,
-							"linearGain": 0.3536
+							"cutoffHz": 9513.66,
+							"linearGain": 0.5
 						}
 					],
-					"preset": 69,
-					"effects": [
-						"chord type"
-					],
-					"chord": "arpeggio",
+					"reverb": 33,
 					"fadeInSeconds": 0,
-					"fadeOutTicks": -3,
-					"wave": "retro",
-					"envelopes": []
+					"fadeOutTicks": 48,
+					"spectrum": [
+						29,
+						43,
+						86,
+						43,
+						43,
+						43,
+						43,
+						43,
+						100,
+						29,
+						14,
+						14,
+						100,
+						14,
+						14,
+						0,
+						0,
+						0,
+						0,
+						0,
+						14,
+						29,
+						29,
+						14,
+						0,
+						0,
+						14,
+						29,
+						0,
+						0
+					],
+					"envelopes": [
+						{
+							"target": "noteFilterAllFreqs",
+							"envelope": "twang 2"
+						}
+					]
 				}
 			],
 			"patterns": [
@@ -1909,67 +1918,16 @@
 						},
 						{
 							"pitches": [
-								8
-							],
-							"points": [
-								{
-									"tick": 6,
-									"pitchBend": 0,
-									"volume": 100
-								},
-								{
-									"tick": 8,
-									"pitchBend": 0,
-									"volume": 0
-								}
-							]
-						},
-						{
-							"pitches": [
-								2
-							],
-							"points": [
-								{
-									"tick": 8,
-									"pitchBend": 0,
-									"volume": 100
-								},
-								{
-									"tick": 10,
-									"pitchBend": 0,
-									"volume": 0
-								}
-							]
-						},
-						{
-							"pitches": [
-								9
-							],
-							"points": [
-								{
-									"tick": 10,
-									"pitchBend": 0,
-									"volume": 100
-								},
-								{
-									"tick": 12,
-									"pitchBend": 0,
-									"volume": 0
-								}
-							]
-						},
-						{
-							"pitches": [
 								4
 							],
 							"points": [
 								{
-									"tick": 12,
+									"tick": 8,
 									"pitchBend": 0,
 									"volume": 100
 								},
 								{
-									"tick": 14,
+									"tick": 10,
 									"pitchBend": 0,
 									"volume": 0
 								}
@@ -1977,16 +1935,16 @@
 						},
 						{
 							"pitches": [
-								10
+								6
 							],
 							"points": [
 								{
-									"tick": 14,
+									"tick": 12,
 									"pitchBend": 0,
 									"volume": 100
 								},
 								{
-									"tick": 16,
+									"tick": 14,
 									"pitchBend": 0,
 									"volume": 0
 								}
@@ -2028,67 +1986,16 @@
 						},
 						{
 							"pitches": [
-								8
-							],
-							"points": [
-								{
-									"tick": 22,
-									"pitchBend": 0,
-									"volume": 100
-								},
-								{
-									"tick": 24,
-									"pitchBend": 0,
-									"volume": 0
-								}
-							]
-						},
-						{
-							"pitches": [
-								2
-							],
-							"points": [
-								{
-									"tick": 24,
-									"pitchBend": 0,
-									"volume": 100
-								},
-								{
-									"tick": 26,
-									"pitchBend": 0,
-									"volume": 0
-								}
-							]
-						},
-						{
-							"pitches": [
-								9
-							],
-							"points": [
-								{
-									"tick": 26,
-									"pitchBend": 0,
-									"volume": 100
-								},
-								{
-									"tick": 28,
-									"pitchBend": 0,
-									"volume": 0
-								}
-							]
-						},
-						{
-							"pitches": [
 								4
 							],
 							"points": [
 								{
-									"tick": 28,
+									"tick": 24,
 									"pitchBend": 0,
 									"volume": 100
 								},
 								{
-									"tick": 30,
+									"tick": 26,
 									"pitchBend": 0,
 									"volume": 0
 								}
@@ -2096,16 +2003,16 @@
 						},
 						{
 							"pitches": [
-								10
+								6
 							],
 							"points": [
 								{
-									"tick": 30,
+									"tick": 28,
 									"pitchBend": 0,
 									"volume": 100
 								},
 								{
-									"tick": 32,
+									"tick": 30,
 									"pitchBend": 0,
 									"volume": 0
 								}
@@ -2152,24 +2059,7 @@
 						},
 						{
 							"pitches": [
-								8
-							],
-							"points": [
-								{
-									"tick": 6,
-									"pitchBend": 0,
-									"volume": 100
-								},
-								{
-									"tick": 8,
-									"pitchBend": 0,
-									"volume": 0
-								}
-							]
-						},
-						{
-							"pitches": [
-								2
+								7
 							],
 							"points": [
 								{
@@ -2179,23 +2069,6 @@
 								},
 								{
 									"tick": 10,
-									"pitchBend": 0,
-									"volume": 0
-								}
-							]
-						},
-						{
-							"pitches": [
-								9
-							],
-							"points": [
-								{
-									"tick": 10,
-									"pitchBend": 0,
-									"volume": 100
-								},
-								{
-									"tick": 12,
 									"pitchBend": 0,
 									"volume": 0
 								}
@@ -2213,23 +2086,6 @@
 								},
 								{
 									"tick": 14,
-									"pitchBend": 0,
-									"volume": 0
-								}
-							]
-						},
-						{
-							"pitches": [
-								8
-							],
-							"points": [
-								{
-									"tick": 14,
-									"pitchBend": 0,
-									"volume": 100
-								},
-								{
-									"tick": 16,
 									"pitchBend": 0,
 									"volume": 0
 								}
@@ -2271,24 +2127,7 @@
 						},
 						{
 							"pitches": [
-								8
-							],
-							"points": [
-								{
-									"tick": 22,
-									"pitchBend": 0,
-									"volume": 100
-								},
-								{
-									"tick": 24,
-									"pitchBend": 0,
-									"volume": 0
-								}
-							]
-						},
-						{
-							"pitches": [
-								2
+								7
 							],
 							"points": [
 								{
@@ -2298,23 +2137,6 @@
 								},
 								{
 									"tick": 26,
-									"pitchBend": 0,
-									"volume": 0
-								}
-							]
-						},
-						{
-							"pitches": [
-								9
-							],
-							"points": [
-								{
-									"tick": 26,
-									"pitchBend": 0,
-									"volume": 100
-								},
-								{
-									"tick": 28,
 									"pitchBend": 0,
 									"volume": 0
 								}
@@ -2332,23 +2154,6 @@
 								},
 								{
 									"tick": 30,
-									"pitchBend": 0,
-									"volume": 0
-								}
-							]
-						},
-						{
-							"pitches": [
-								8
-							],
-							"points": [
-								{
-									"tick": 30,
-									"pitchBend": 0,
-									"volume": 100
-								},
-								{
-									"tick": 32,
 									"pitchBend": 0,
 									"volume": 0
 								}
@@ -2376,6 +2181,10 @@
 				}
 			],
 			"sequence": [
+				2,
+				1,
+				2,
+				1,
 				2,
 				1,
 				2,

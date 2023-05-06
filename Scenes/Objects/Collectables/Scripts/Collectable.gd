@@ -9,18 +9,7 @@ var started_anim = false
 func _ready():
 	if has_node('Anim'):
 		get_node('Anim').animation_finished.connect(_on_animation_finished)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	if Global.Game != null:
-		if $Area.overlaps_body(Global.Game.Player):
-			if !started_anim:
-				started_anim = true
-				collect_start()
-			if !has_node('Anim'):
-				collect_end()
-			else:
-				get_node('Anim').play('collect')
+	$Area.body_entered.connect(_on_area_body_entered)
 
 func _on_animation_finished(anim):
 	if anim == 'collect':
@@ -44,4 +33,15 @@ func collect_start():
 			
 			
 func collect_end():
-	get_parent().remove_child(self)
+	get_parent().call_deferred('remove_child', self)
+
+func _on_area_body_entered(body):
+	if Global.Game != null:
+		if body == Global.Game.Player:
+			if !started_anim:
+				started_anim = true
+				collect_start()
+			if !has_node('Anim'):
+				collect_end()
+			else:
+				get_node('Anim').play('collect')

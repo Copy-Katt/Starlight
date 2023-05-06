@@ -11,8 +11,8 @@ extends Control
 
 @export var option_value := [KEY_A,KEY_LEFT]:
 	set(value):
-		$Key1.text = Global.string_from_keycode(value[0])
-		$Key2.text = Global.string_from_keycode(value[1])
+		$Key1.text = InputHelper.name_from_keycode(value[0])
+		$Key2.text = InputHelper.name_from_keycode(value[1])
 		option_value = value
 
 var selecting_bind := 0

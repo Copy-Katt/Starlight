@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://sm50c8o4w3a1"]
+[gd_scene load_steps=5 format=3 uid="uid://dkxktrgacqyqx"]
 
 [ext_resource type="Script" path="res://Scenes/Objects/Tiles/GiantBubble.gd" id="1_vedi7"]
-[ext_resource type="Texture2D" uid="uid://bf62whfy1x5lv" path="res://Assets/Images/LevelItems/Objects.png" id="2_648ft"]
+[ext_resource type="Texture2D" uid="uid://bf62whfy1x5lv" path="res://Assets/Images/Objects/Objects.png" id="2_648ft"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sr52s"]
 atlas = ExtResource("2_648ft")

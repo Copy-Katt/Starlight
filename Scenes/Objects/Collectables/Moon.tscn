@@ -1,8 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://cdnl3daarynop"]
+[gd_scene load_steps=12 format=3]
 
 [ext_resource type="Script" path="res://Scenes/Objects/Collectables/Scripts/Collectable.gd" id="1_idpjs"]
 [ext_resource type="Shader" path="res://Assets/Shaders/Moon.gdshader" id="2_kbhbq"]
-[ext_resource type="Texture2D" uid="uid://bf62whfy1x5lv" path="res://Assets/Images/LevelItems/Objects.png" id="2_s7jer"]
+[ext_resource type="Texture2D" uid="uid://bf62whfy1x5lv" path="res://Assets/Images/Objects/Objects.png" id="2_s7jer"]
 [ext_resource type="FontFile" uid="uid://lfyxkqn7db31" path="res://Assets/Fonts/small_5x3.ttf" id="3_mvrq8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f2pdn"]

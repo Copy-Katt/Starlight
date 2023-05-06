@@ -88,8 +88,6 @@ sprite_frames = SubResource("SpriteFrames_w1e0n")
 animation = &"1"
 offset = Vector2(0, -8)
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Sprite"]
-
 [node name="Shape" type="CollisionShape2D" parent="."]
 rotation = 1.57492
 shape = SubResource("CircleShape2D_dfk1p")
@@ -99,6 +97,3 @@ debug_color = Color(0.745098, 0.0117647, 0, 0.419608)
 
 [node name="Shape" type="CollisionShape2D" parent="Area"]
 shape = SubResource("CircleShape2D_c2rih")
-
-[connection signal="screen_entered" from="Sprite/VisibleOnScreenNotifier2D" to="Sprite" method="show"]
-[connection signal="screen_exited" from="Sprite/VisibleOnScreenNotifier2D" to="Sprite" method="hide"]

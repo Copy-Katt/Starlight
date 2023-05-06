@@ -1,8 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://dviufjcr0g8hk"]
+[gd_scene load_steps=13 format=3]
 
 [ext_resource type="Script" path="res://Scenes/Objects/Collectables/Scripts/Collectable.gd" id="1_qados"]
 [ext_resource type="Shader" path="res://Assets/Shaders/Bubble.gdshader" id="2_tcoof"]
-[ext_resource type="Texture2D" uid="uid://bf62whfy1x5lv" path="res://Assets/Images/LevelItems/Objects.png" id="3_x60fw"]
+[ext_resource type="Texture2D" uid="uid://bf62whfy1x5lv" path="res://Assets/Images/Objects/Objects.png" id="3_x60fw"]
 [ext_resource type="FontFile" uid="uid://lfyxkqn7db31" path="res://Assets/Fonts/small_5x3.ttf" id="4_6uvi6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_thfcq"]
@@ -174,7 +174,6 @@ scale = Vector2(0.75, 0.75)
 texture = SubResource("AtlasTexture_og11u")
 
 [node name="Area" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="Area"]
 shape = SubResource("CircleShape2D_fsu6e")

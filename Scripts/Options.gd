@@ -52,6 +52,7 @@ func reload_option(_cat, id):
 			for i in value:
 				var ie = InputEventKey.new()
 				ie.keycode = i
+				InputMap.action_erase_events(id)
 				InputMap.action_add_event(id, ie)
 	match id:
 		'max_fps':
@@ -71,9 +72,9 @@ func reload_option(_cat, id):
 			
 			
 		'music_vol':
-			Global.get_node('Music').volume_db = (value/2-50)
+			Global.get_node('Music').volume_db = linear_to_db(value/100)
 		'sfx_vol':
-			Global.Sound.vol = (value/2-50)
+			Global.Sound.vol = linear_to_db(value/100)
 			
 		'screenshake_factor':
 			Global.screenshake_factor = value/100

@@ -1,8 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://dbrg0ehe6exn1"]
+[gd_scene load_steps=12 format=3]
 
 [ext_resource type="Script" path="res://Scenes/Objects/Collectables/Scripts/Collectable.gd" id="1_gh34j"]
 [ext_resource type="Shader" path="res://Assets/Shaders/Gem.gdshader" id="2_lcjbb"]
-[ext_resource type="Texture2D" uid="uid://bf62whfy1x5lv" path="res://Assets/Images/LevelItems/Objects.png" id="3_m13mo"]
+[ext_resource type="Texture2D" uid="uid://bf62whfy1x5lv" path="res://Assets/Images/Objects/Objects.png" id="3_m13mo"]
 [ext_resource type="FontFile" uid="uid://lfyxkqn7db31" path="res://Assets/Fonts/small_5x3.ttf" id="4_88qcm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_thfcq"]
