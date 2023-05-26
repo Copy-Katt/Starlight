@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://blun3bgl87fyb"]
+[gd_scene load_steps=45 format=3 uid="uid://db1w04vp7thvk"]
 
 [ext_resource type="Script" path="res://Scenes/Menus/OptionsMenu.gd" id="1_8bcw8"]
 [ext_resource type="Texture2D" uid="uid://ecn0n8wttl4l" path="res://Assets/Images/Menus/Options/Tablet.png" id="3_bul0s"]
@@ -7,11 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://dmwhccac7utqn" path="res://Assets/Images/Menus/TitleScreen/Stars.png" id="5_64xrv"]
 [ext_resource type="Theme" uid="uid://jlefapqly6nh" path="res://Assets/Data/tablet_theme.theme" id="5_faoh0"]
 [ext_resource type="FontFile" uid="uid://bcjvcavk6kkgm" path="res://Assets/Fonts/PixelOperatorHB.ttf" id="6_rw2m2"]
+[ext_resource type="Shader" path="res://Assets/Shaders/ColorByBrightness_SCREEN.gdshader" id="7_a3i0t"]
 [ext_resource type="Texture2D" uid="uid://dhpopjk0kmtqh" path="res://Assets/Images/Menus/Options/TabletScreen.png" id="8_718yo"]
 [ext_resource type="Texture2D" uid="uid://cgmmislc3tyxk" path="res://Assets/Images/Menus/Options/CategoryIcons.png" id="8_m5lby"]
 [ext_resource type="Texture2D" uid="uid://wb6pa7664in1" path="res://Assets/Images/Menus/Options/TabletPalettes.png" id="8_pveyj"]
 [ext_resource type="FontFile" uid="uid://btmbcaberjtcd" path="res://Assets/Fonts/Sevastopol-Interface.ttf" id="8_wteru"]
-[ext_resource type="Shader" path="res://Assets/Shaders/TabletColorFilter.gdshader" id="10_5n7mu"]
 [ext_resource type="Texture2D" uid="uid://6eisgw7ffeyc" path="res://Assets/Images/Menus/Options/Buttons.png" id="13_bpokv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sltxr"]
@@ -20,7 +20,7 @@ shader_parameter/strengthX = -0.05
 shader_parameter/strengthY = -0.025
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c2klr"]
-shader = ExtResource("10_5n7mu")
+shader = ExtResource("7_a3i0t")
 shader_parameter/palette_offset = 0.0
 shader_parameter/palettes = ExtResource("8_pveyj")
 

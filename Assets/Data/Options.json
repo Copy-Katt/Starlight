@@ -43,6 +43,11 @@
 				"name": "Show FPS",
 				"type": "bool",
 				"def_value": true
+			},
+			"pixel_perfect": {
+				"name": "Pixel Perfect Render",
+				"type": "bool",
+				"def_value": false
 			}
 		}
 	},

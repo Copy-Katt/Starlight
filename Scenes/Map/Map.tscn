@@ -1,0 +1,380 @@
+[gd_scene load_steps=36 format=3]
+
+[ext_resource type="Script" path="res://Scenes/Map/Map.gd" id="1_m7iys"]
+[ext_resource type="Shader" path="res://Assets/Shaders/SpaceBG.gdshader" id="1_m7upr"]
+[ext_resource type="Texture2D" uid="uid://dfk0ws1apgptm" path="res://Assets/Images/Objects/BG/Space.png" id="2_bqkr7"]
+[ext_resource type="Shader" path="res://Assets/Shaders/ColorByBrightness.gdshader" id="4_gql01"]
+[ext_resource type="Texture2D" uid="uid://ckuwkbx0hh047" path="res://Assets/Images/Map/Palettes.png" id="5_4xofd"]
+[ext_resource type="Script" path="res://Scenes/Map/MapLineController.gd" id="6_roku4"]
+[ext_resource type="Script" path="res://Scenes/Map/MapIcon.gd" id="7_oj5nj"]
+[ext_resource type="Texture2D" uid="uid://cj1bifx1ntqa0" path="res://Assets/Images/Map/LevelIcons.png" id="7_xmr8l"]
+[ext_resource type="Theme" uid="uid://d1ht28nh3rwd0" path="res://Assets/Data/default_theme.theme" id="8_5xhdq"]
+[ext_resource type="FontFile" uid="uid://d3riprf5xafdd" path="res://Assets/Fonts/Comicoro.ttf" id="9_d6j3h"]
+[ext_resource type="Texture2D" uid="uid://cnnqkxdix2jix" path="res://Assets/Images/Pixelnaut/Pixelnaut.png" id="11_520b3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mgmyc"]
+shader = ExtResource("1_m7upr")
+shader_parameter/strengthX = 0.0125
+shader_parameter/strengthY = 0.0625
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ig0pg"]
+shader = ExtResource("4_gql01")
+shader_parameter/palette_offset = 0.0
+shader_parameter/palettes = ExtResource("5_4xofd")
+
+[sub_resource type="Shader" id="Shader_0kivw"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.0.stable's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx;
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color,filter_linear_mipmap,repeat_enable;
+uniform float point_size : hint_range(0,128);
+uniform float roughness : hint_range(0,1);
+uniform sampler2D texture_metallic : hint_default_white,filter_linear_mipmap,repeat_enable;
+uniform vec4 metallic_texture_channel;
+uniform sampler2D texture_roughness : hint_roughness_r,filter_linear_mipmap,repeat_enable;
+uniform float specular;
+uniform float metallic;
+uniform sampler2D texture_normal : hint_roughness_normal,filter_linear_mipmap,repeat_enable;
+uniform float normal_scale : hint_range(-16,16);
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+
+void vertex() {
+	UV=UV*uv1_scale.xy+uv1_offset.xy;
+}
+
+
+
+
+
+
+void fragment() {
+	vec2 base_uv = UV;
+	vec4 albedo_tex = texture(texture_albedo,base_uv);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+	float metallic_tex = dot(texture(texture_metallic,base_uv),metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	vec4 roughness_texture_channel = vec4(1.0,0.0,0.0,0.0);
+	float roughness_tex = dot(texture(texture_roughness,base_uv),roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+	SPECULAR = specular;
+	NORMAL_MAP = texture(texture_normal,base_uv).rgb;
+	NORMAL_MAP_DEPTH = normal_scale;
+}"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_oxumm"]
+noise_type = 2
+frequency = 0.027
+fractal_gain = 0.25
+cellular_jitter = 1.177
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_iso0h"]
+invert = true
+in_3d_space = true
+seamless = true
+as_normal_map = true
+bump_strength = 12.0
+noise = SubResource("FastNoiseLite_oxumm")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ntrsl"]
+render_priority = 0
+shader = SubResource("Shader_0kivw")
+shader_parameter/albedo = Color(0.470588, 0.470588, 0.470588, 1)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/normal_scale = 1.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_iso0h")
+
+[sub_resource type="SphereMesh" id="SphereMesh_m4ism"]
+material = SubResource("ShaderMaterial_ntrsl")
+
+[sub_resource type="Environment" id="Environment_7q3cj"]
+ambient_light_source = 2
+ambient_light_color = Color(0.521569, 0.521569, 0.521569, 1)
+tonemap_exposure = 1.38
+ssao_radius = 16.0
+ssao_intensity = 16.0
+ssao_power = 1e+06
+ssao_detail = 5.0
+ssao_horizon = 0.0
+ssao_sharpness = 1.0
+ssao_light_affect = 1.0
+ssao_ao_channel_affect = 1.0
+volumetric_fog_density = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_asqtj"]
+atlas = ExtResource("7_xmr8l")
+region = Rect2(20, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0da6"]
+atlas = ExtResource("7_xmr8l")
+region = Rect2(10, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jg3b"]
+atlas = ExtResource("7_xmr8l")
+region = Rect2(0, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3ej1"]
+atlas = ExtResource("7_xmr8l")
+region = Rect2(0, 10, 6, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iuw3n"]
+atlas = ExtResource("11_520b3")
+region = Rect2(44, 0, 11, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npax8"]
+atlas = ExtResource("11_520b3")
+region = Rect2(44, 16, 11, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qudk3"]
+atlas = ExtResource("11_520b3")
+region = Rect2(55, 16, 11, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwchk"]
+atlas = ExtResource("11_520b3")
+region = Rect2(66, 16, 11, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jva58"]
+atlas = ExtResource("11_520b3")
+region = Rect2(77, 16, 11, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_damrq"]
+atlas = ExtResource("11_520b3")
+region = Rect2(0, 0, 11, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_koe0p"]
+atlas = ExtResource("11_520b3")
+region = Rect2(0, 16, 11, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_geet7"]
+atlas = ExtResource("11_520b3")
+region = Rect2(11, 16, 11, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fybjn"]
+atlas = ExtResource("11_520b3")
+region = Rect2(22, 16, 11, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qu5pn"]
+atlas = ExtResource("11_520b3")
+region = Rect2(33, 16, 11, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_36i2q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iuw3n")
+}],
+"loop": true,
+"name": &"l_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npax8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qudk3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwchk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jva58")
+}],
+"loop": true,
+"name": &"l_walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_damrq")
+}],
+"loop": true,
+"name": &"r_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_koe0p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_geet7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fybjn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qu5pn")
+}],
+"loop": true,
+"name": &"r_walk",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kasgf"]
+font = ExtResource("9_d6j3h")
+
+[node name="Map" type="Node2D"]
+script = ExtResource("1_m7iys")
+
+[node name="Space" type="Sprite2D" parent="."]
+z_index = -100
+material = SubResource("ShaderMaterial_mgmyc")
+texture = ExtResource("2_bqkr7")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 416, 240)
+
+[node name="Planet" type="SubViewportContainer" parent="."]
+material = SubResource("ShaderMaterial_ig0pg")
+offset_right = 240.0
+offset_bottom = 240.0
+stretch = true
+
+[node name="3D" type="SubViewport" parent="Planet"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(240, 240)
+render_target_update_mode = 4
+
+[node name="Mesh" type="MeshInstance3D" parent="Planet/3D"]
+transform = Transform3D(-0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, -0.939693, 0, 0, 0)
+mesh = SubResource("SphereMesh_m4ism")
+skeleton = NodePath("../Camera")
+
+[node name="Light" type="OmniLight3D" parent="Planet/3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 1)
+distance_fade_enabled = true
+
+[node name="Camera" type="Camera3D" parent="Planet/3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.05, 10)
+projection = 1
+current = true
+size = 0.6
+
+[node name="Env" type="WorldEnvironment" parent="Planet/3D"]
+environment = SubResource("Environment_7q3cj")
+
+[node name="Paths" type="Node2D" parent="."]
+
+[node name="Lines" type="Node2D" parent="Paths"]
+script = ExtResource("6_roku4")
+lines = Array[PackedInt32Array]([PackedInt32Array(0, 1, 1), PackedInt32Array(0, 2, 1), PackedInt32Array(1, 3, 0), PackedInt32Array(2, 3, 0), PackedInt32Array(3, 4, 0), PackedInt32Array(4, 5, 0), PackedInt32Array(5, 6, 0)])
+
+[node name="Nodes" type="Node2D" parent="Paths"]
+
+[node name="1" type="Sprite2D" parent="Paths/Nodes"]
+position = Vector2(50, 110)
+texture = SubResource("AtlasTexture_asqtj")
+script = ExtResource("7_oj5nj")
+layer = 1
+
+[node name="2" type="Sprite2D" parent="Paths/Nodes"]
+position = Vector2(86, 144)
+texture = SubResource("AtlasTexture_a0da6")
+script = ExtResource("7_oj5nj")
+layer = 1
+
+[node name="3" type="Sprite2D" parent="Paths/Nodes"]
+position = Vector2(100, 87)
+texture = SubResource("AtlasTexture_a0da6")
+script = ExtResource("7_oj5nj")
+layer = 1
+
+[node name="4" type="Sprite2D" parent="Paths/Nodes"]
+position = Vector2(159, 134)
+texture = SubResource("AtlasTexture_0jg3b")
+script = ExtResource("7_oj5nj")
+layer = 1
+
+[node name="5" type="Sprite2D" parent="Paths/Nodes"]
+position = Vector2(207, 187)
+texture = SubResource("AtlasTexture_0jg3b")
+script = ExtResource("7_oj5nj")
+layer = 1
+
+[node name="6" type="Sprite2D" parent="Paths/Nodes"]
+position = Vector2(270, 116)
+texture = SubResource("AtlasTexture_0jg3b")
+script = ExtResource("7_oj5nj")
+layer = 1
+
+[node name="7" type="Sprite2D" parent="Paths/Nodes"]
+position = Vector2(332, 134)
+texture = SubResource("AtlasTexture_0jg3b")
+script = ExtResource("7_oj5nj")
+layer = 1
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(208, 120)
+
+[node name="Dot" type="ColorRect" parent="."]
+visible = false
+offset_right = 2.0
+offset_bottom = 2.0
+script = ExtResource("7_oj5nj")
+
+[node name="Arrow" type="Node2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(50, 110)
+
+[node name="Sprite" type="Sprite2D" parent="Arrow"]
+position = Vector2(9, 0)
+texture = SubResource("AtlasTexture_g3ej1")
+script = ExtResource("7_oj5nj")
+layer = 1
+
+[node name="Player" type="AnimatedSprite2D" parent="Arrow"]
+sprite_frames = SubResource("SpriteFrames_36i2q")
+animation = &"r_idle"
+offset = Vector2(-0.5, -6)
+script = ExtResource("7_oj5nj")
+layer = 1
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 253.0
+offset_top = 15.0
+offset_right = 401.0
+offset_bottom = 77.0
+theme = ExtResource("8_5xhdq")
+
+[node name="Level" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 7.0
+offset_right = 74.0
+offset_bottom = 25.0
+text = "Level 1"
+label_settings = SubResource("LabelSettings_kasgf")
+
+[node name="World" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 7.0
+offset_right = 132.0
+offset_bottom = 25.0
+text = "World 1"
+label_settings = SubResource("LabelSettings_kasgf")
+horizontal_alignment = 2
+
+[node name="Name" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 31.0
+offset_right = 74.0
+offset_bottom = 49.0
+text = "Rocky Mountains"
+label_settings = SubResource("LabelSettings_kasgf")

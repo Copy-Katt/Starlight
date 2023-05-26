@@ -40,9 +40,10 @@ func load_page():
 		var i_val = Options.def_options[Options.def_options.keys()[cur_category]].settings[i]
 		
 		var option = option_types[i_val.type].instantiate()
-		option.option_id = i
-		option.option_name = i_val.name
-		option.category = Options.def_options.keys()[cur_category]
+		if !i.begins_with('_'):
+			option.option_id = i
+			option.option_name = i_val.name
+			option.category = Options.def_options.keys()[cur_category]
 		
 		match(i_val.type):
 			'num':
@@ -52,9 +53,12 @@ func load_page():
 				if i_val.has('swaps'): option.option_swaps = i_val.swaps
 				if i_val.has('suffix'): option.option_suffix = i_val.suffix
 		
-		if Options.options[Options.def_options.keys()[cur_category]].keys().has(i):
-			option.option_value = Options.options[Options.def_options.keys()[cur_category]][i]
+		if !i.begins_with('_'):
+			if Options.options[Options.def_options.keys()[cur_category]].keys().has(i):
+				option.option_value = Options.options[Options.def_options.keys()[cur_category]][i]
 		$Screen/Options/VBoxContainer.add_child(option)
+	
+	$Screen/Options/VBoxContainer.add_child(Control.new())
 	
 	$Screen/Title.text = Options.def_options[Options.def_options.keys()[cur_category]].name
 	$Screen/Title/TitleIcon.texture = $Screen/Categories.get_child(cur_category).texture_normal
@@ -75,6 +79,7 @@ func _on_back_pressed():
 	Global.switch_scene("res://Scenes/Menus/TitleScreen.tscn")
 
 func _on_reload_pressed():
+	Options.save()
 	Global.Sound.play_sound('MenuAccept', SoundIgnoreType.PASS_THROUGH)
 	Options.reload()
 	

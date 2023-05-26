@@ -103,6 +103,7 @@ select={
 
 [rendering]
 
+textures/default_filters/anisotropic_filtering_level=0
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
 viewport/transparent_background=true
 textures/canvas_textures/default_texture_filter=0

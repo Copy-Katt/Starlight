@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://Scenes/Game/Objects/Enemies/Spikr.gd" id="1_2q2oc"]
+[ext_resource type="Texture2D" uid="uid://bqusr5fxgqvyk" path="res://Assets/Images/Enemies/Spikr.png" id="1_c4cwb"]
+[ext_resource type="Shader" path="res://Assets/Shaders/Spikr_Spikes.gdshader" id="2_mnmbq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r58gw"]
+shader = ExtResource("2_mnmbq")
+shader_parameter/invert = false
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcd6o"]
+atlas = ExtResource("1_c4cwb")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0tca"]
+atlas = ExtResource("1_c4cwb")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgw15"]
+atlas = ExtResource("1_c4cwb")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_smcc1"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_np7rc"]
+radius = 7.0
+
+[node name="Spikr" type="Node2D"]
+script = ExtResource("1_2q2oc")
+
+[node name="Spikes" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_r58gw")
+texture = SubResource("AtlasTexture_vcd6o")
+
+[node name="Body" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_n0tca")
+
+[node name="Eye" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite2D" parent="Eye"]
+position = Vector2(1, 0)
+texture = SubResource("AtlasTexture_bgw15")
+
+[node name="Area" type="Area2D" parent="."]
+
+[node name="Shape" type="CollisionShape2D" parent="Area"]
+rotation = 1.5708
+shape = SubResource("CircleShape2D_smcc1")
+debug_color = Color(0.745098, 0.0117647, 0, 0.419608)
+
+[node name="Collision" type="StaticBody2D" parent="."]
+
+[node name="Shape" type="CollisionShape2D" parent="Collision"]
+shape = SubResource("CircleShape2D_np7rc")

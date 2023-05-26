@@ -113,4 +113,6 @@ func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		if _close >= 1 and get_tree().current_scene.name != 'Closing':
 			switch_scene("res://Scenes/Closing.tscn", true, true)
+			Options.save()
+			Options.reload()
 		_close += 1

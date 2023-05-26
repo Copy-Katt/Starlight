@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0gykgh2jewsb"]
+
+[ext_resource type="Texture2D" uid="uid://divej51ps6w25" path="res://Assets/Images/Dialog/Box.png" id="1_alpuq"]
+[ext_resource type="FontFile" uid="uid://d3riprf5xafdd" path="res://Assets/Fonts/Comicoro.ttf" id="2_s66fl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_317gq"]
+atlas = ExtResource("1_alpuq")
+region = Rect2(0, 0, 288, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3no5"]
+atlas = ExtResource("1_alpuq")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="LabelSettings" id="LabelSettings_40qxs"]
+line_spacing = 0.0
+font = ExtResource("2_s66fl")
+
+[node name="DialogBox" type="Node2D"]
+
+[node name="Box" type="Sprite2D" parent="."]
+position = Vector2(208, 192)
+texture = SubResource("AtlasTexture_317gq")
+
+[node name="PortraitBG" type="Sprite2D" parent="."]
+position = Vector2(96, 192)
+texture = SubResource("AtlasTexture_f3no5")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 124.0
+offset_top = 168.0
+offset_right = 348.0
+offset_bottom = 216.0
+text = "  - Test.
+  - Multiline test."
+label_settings = SubResource("LabelSettings_40qxs")

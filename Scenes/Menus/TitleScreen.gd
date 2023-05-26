@@ -4,7 +4,7 @@ var cur_selected = 0
 var last_cur_selected = -1
 var functions = [
 	func (): 
-		Global.switch_scene("res://Scenes/Game.tscn")
+		Global.switch_scene("res://Scenes/Game/Game.tscn")
 		Global.play_music('EndlessVoid',false),
 	func (): Global.switch_scene("res://Scenes/Menus/OptionsMenu.tscn"),
 	func (): Global.switch_scene("res://Scenes/Closing.tscn")

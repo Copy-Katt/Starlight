@@ -1,0 +1,99 @@
+[gd_scene load_steps=14 format=3]
+
+[ext_resource type="Texture2D" uid="uid://g1wjarvypo4a" path="res://Assets/Images/Enemies/Tripletts.png" id="1_101uj"]
+[ext_resource type="Script" path="res://Scenes/Game/Objects/Enemies/Tripletts.gd" id="1_mbooy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sr3s"]
+atlas = ExtResource("1_101uj")
+region = Rect2(0, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovf8k"]
+atlas = ExtResource("1_101uj")
+region = Rect2(16, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37gyu"]
+atlas = ExtResource("1_101uj")
+region = Rect2(32, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukdux"]
+atlas = ExtResource("1_101uj")
+region = Rect2(48, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0su3o"]
+atlas = ExtResource("1_101uj")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwjae"]
+atlas = ExtResource("1_101uj")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3aps"]
+atlas = ExtResource("1_101uj")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5e6hp"]
+atlas = ExtResource("1_101uj")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w1e0n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6sr3s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovf8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37gyu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukdux")
+}],
+"loop": true,
+"name": &"-1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0su3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwjae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3aps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5e6hp")
+}],
+"loop": true,
+"name": &"1",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dfk1p"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c2rih"]
+
+[node name="Tripletts" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 3
+platform_wall_layers = 1
+script = ExtResource("1_mbooy")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_w1e0n")
+animation = &"1"
+offset = Vector2(0, -8)
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+rotation = 1.57492
+shape = SubResource("CircleShape2D_dfk1p")
+debug_color = Color(0.745098, 0.0117647, 0, 0.419608)
+
+[node name="Area" type="Area2D" parent="."]
+
+[node name="Shape" type="CollisionShape2D" parent="Area"]
+shape = SubResource("CircleShape2D_c2rih")

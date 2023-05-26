@@ -1,0 +1,161 @@
+[gd_scene load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://Scenes/Game/Objects/Collectables/Scripts/Collectable.gd" id="1_gh34j"]
+[ext_resource type="Shader" path="res://Assets/Shaders/Gem.gdshader" id="2_lcjbb"]
+[ext_resource type="Texture2D" uid="uid://bf62whfy1x5lv" path="res://Assets/Images/Objects/Objects.png" id="3_m13mo"]
+[ext_resource type="FontFile" uid="uid://lfyxkqn7db31" path="res://Assets/Fonts/small_5x3.ttf" id="4_88qcm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_thfcq"]
+shader = ExtResource("2_lcjbb")
+shader_parameter/shine_color = Color(0.960784, 1, 0.909804, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6jpy"]
+atlas = ExtResource("3_m13mo")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_usdhx"]
+radius = 16.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_kusgy"]
+font = ExtResource("4_88qcm")
+font_size = 8
+
+[sub_resource type="Animation" id="Animation_0rcup"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -13)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_aq5ua"]
+resource_name = "collect"
+length = 0.35
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -13), Vector2(0, -33), Vector2(0, -27)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_28rqu"]
+_data = {
+"RESET": SubResource("Animation_0rcup"),
+"collect": SubResource("Animation_aq5ua")
+}
+
+[node name="Gem" type="Node2D"]
+z_index = 1
+script = ExtResource("1_gh34j")
+amount_increase = 5
+score = 100
+
+[node name="Sprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_thfcq")
+position = Vector2(8, -8)
+texture = SubResource("AtlasTexture_d6jpy")
+
+[node name="Area" type="Area2D" parent="."]
+position = Vector2(8, -8)
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Area"]
+shape = SubResource("CircleShape2D_usdhx")
+debug_color = Color(0.701961, 0.654902, 0, 0.419608)
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_top = -13.0
+offset_right = 16.0
+offset_bottom = -3.0
+text = "+100"
+label_settings = SubResource("LabelSettings_kusgy")
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_28rqu")
+}

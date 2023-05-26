@@ -42,17 +42,18 @@ func save_option(_cat, _id, _value):
 func reload():
 	for cat in options.keys():
 		for id in options[cat].keys():
-			reload_option(cat, id)
+			if !id.begins_with('_'):
+				reload_option(cat, id)
 	
 func reload_option(_cat, id):
 	var value = options[_cat][id]
 	
 	if def_options.has(_cat) and def_options[_cat].settings.has(id) and def_options[_cat].settings[id].has('type'):
 		if def_options[_cat].settings[id].type == 'key':
+			InputMap.action_erase_events(id)
 			for i in value:
 				var ie = InputEventKey.new()
 				ie.keycode = i
-				InputMap.action_erase_events(id)
 				InputMap.action_add_event(id, ie)
 	match id:
 		'max_fps':
@@ -69,6 +70,8 @@ func reload_option(_cat, id):
 			get_viewport().mode = 3 if value else 0
 		'show_fps':
 			Global.get_node('Info').visible = value
+		'pixel_perfect':
+			get_viewport().content_scale_mode = 1+int(value)
 			
 			
 		'music_vol':
@@ -76,8 +79,10 @@ func reload_option(_cat, id):
 		'sfx_vol':
 			Global.Sound.vol = linear_to_db(value/100)
 			
+			
 		'screenshake_factor':
 			Global.screenshake_factor = value/100
+			
 			
 		'tablet_color_scheme':
 			if get_tree().get_root().has_node("OptionsMenu"):

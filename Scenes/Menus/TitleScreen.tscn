@@ -54,8 +54,9 @@ centered = false
 region_rect = Rect2(0, 0, 416, 240)
 
 [node name="Logo" type="Sprite2D" parent="."]
-position = Vector2(208, 72)
+position = Vector2(141, 16)
 texture = ExtResource("4_2nyj7")
+centered = false
 
 [node name="Copyright" type="Label" parent="."]
 offset_left = 145.0
